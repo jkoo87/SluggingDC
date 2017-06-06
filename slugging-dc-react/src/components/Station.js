@@ -6,12 +6,14 @@ class Station extends Component {
   constructor(props){
   super(props)
   this.state = {
-    station: this.props.location.state.station,
-    stations: this.props.location.state.stations
+    stations:  this.props.location.state.stations,
+    station: this.props.location.state.station
     }
   }
 
+
   render() {
+    console.log("Station:", this.props)
       return (
           <div>
               <h1>{this.state.station.name}</h1>

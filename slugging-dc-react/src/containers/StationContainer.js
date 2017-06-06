@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { StationList } from '../components'
+import { StationList, Station } from '../components'
 import axios from 'axios'
 
 class StationContainer extends Component {
@@ -17,6 +17,7 @@ class StationContainer extends Component {
     })
   }
     render() {
+          console.log("StationContainer:", this.state.stations)
         return (
           <div>
             <h2>Stations</h2>
@@ -24,6 +25,7 @@ class StationContainer extends Component {
             <StationList
               stations={this.state.stations}
             />
+  
             </div>
           </div>
         )

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import { About, Home, StationContainer, ContactUs } from './'
-import { Station} from '../components'
+import { Header, Station} from '../components'
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from "react-router-dom"
 
 class App extends Component {
@@ -13,16 +12,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-
-        <nav>
-          <div className="navContainer">
-            <Link to="/">Slugging DC</Link>
-            <Link to="/about">About</Link>
-            <Link to="/stations">Stations</Link>
-            <Link to="/contact-us">Contact Us</Link>
-          </div>
-        </nav>
-
+          <Header />
           <main>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />

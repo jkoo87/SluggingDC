@@ -22,5 +22,29 @@
     "returningStations": ["Pentagon", "Mark Center", "Bob's"],
     "driver": "East bound Braddock Rd drivers who will pick up slugs as a courtesy and/or to utilize the HOV on I-395 N.",
     "parking": "No parking is needed because riders walk to Braddock Rd."
+  },
+  {
+    "name": "Pentagon",
+    "morning": true,
+    "location": "Along Braddock road (East Bound) from Ox Rd (123) to I-495.",
+    "description": "Slugs will have Mark Center or Pentagon signs displayed.  Slugs will be standing at bus stops and/or other paved areas so that drivers can easily and safely move out of traffic to pick up riders.",
+    "map": "7058 Bland St, Springfield, VA 22150",
+    "hours": {"best":"7:00 - 8:00 a.m.", "good": "5:45 - 7:00 a.m."},
+    "destinations": ["Pentagon", "Mark Center"],
+    "returningStations": ["Pentagon", "Mark Center", "Bob's"],
+    "driver": "East bound Braddock Rd drivers who will pick up slugs as a courtesy and/or to utilize the HOV on I-395 N.",
+    "parking": "No parking is needed because riders walk to Braddock Rd."
+  },
+  {
+    "name": "Mark Center",
+    "morning": true,
+    "location": "Along Braddock road (East Bound) from Ox Rd (123) to I-495.",
+    "description": "Slugs will have Mark Center or Pentagon signs displayed.  Slugs will be standing at bus stops and/or other paved areas so that drivers can easily and safely move out of traffic to pick up riders.",
+    "map": "7058 Bland St, Springfield, VA 22150",
+    "hours": {"best":"7:00 - 8:00 a.m.", "good": "5:45 - 7:00 a.m."},
+    "destinations": ["Pentagon", "Mark Center"],
+    "returningStations": ["Pentagon", "Mark Center", "Bob's"],
+    "driver": "East bound Braddock Rd drivers who will pick up slugs as a courtesy and/or to utilize the HOV on I-395 N.",
+    "parking": "No parking is needed because riders walk to Braddock Rd."
   }
 ]
