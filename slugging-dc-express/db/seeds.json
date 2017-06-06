@@ -1,6 +1,6 @@
 [
   {
-    "station": "Bob's",
+    "name": "Bob's",
     "morning": true,
     "location": "Just west of I-95 near the intersection of Old Keene Mill Road and Bland Street in Springfield, VA near the Springfield Town Center (aka Springfield Mall). The line itself is across the street from the parking by the gas station off of Old Keene Mill Road.",
     "description": "This location has undergone the test of time.  Although the construction of the \"Mixing Bowl\" disrupted this line for a short time, it is currently in full operation.  Because of some of the changes there are a few names to describe this location (Bob's, Springfield Plaza, Long John Silvers, Chi Chi's).  All names are actually the same slug line. There are two slug lines that operate out of the commuter lot. Line #1: L’Enfant Plaza and 14th street. Line #2: 18th Street locations (sometimes called Memorial Bridge).",
@@ -12,14 +12,14 @@
     "parking": "Commuter lot next to K-Mart  approx. 155 spaces. The commuter lot is located across the street from the slug lines between the First Union Bank and K-Mart. Commuter lot normally fills by 7:30 or 8:00 a.m."
   },
   {
-    "station": "Braddock Road",
+    "name": "Braddock Road",
     "morning": true,
     "location": "Along Braddock road (East Bound) from Ox Rd (123) to I-495.",
     "description": "Slugs will have Mark Center or Pentagon signs displayed.  Slugs will be standing at bus stops and/or other paved areas so that drivers can easily and safely move out of traffic to pick up riders.",
     "map": "7058 Bland St, Springfield, VA 22150",
     "hours": {"best":"7:00 - 8:00 a.m.", "good": "5:45 - 7:00 a.m."},
     "destinations": ["Pentagon", "Mark Center"],
-    "returningStations": ["Pentagon", "Mark Center"],
+    "returningStations": ["Pentagon", "Mark Center", "Bob's"],
     "driver": "East bound Braddock Rd drivers who will pick up slugs as a courtesy and/or to utilize the HOV on I-395 N.",
     "parking": "No parking is needed because riders walk to Braddock Rd."
   }

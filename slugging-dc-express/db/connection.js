@@ -15,7 +15,7 @@ let CommentSchema = new Schema({
 
 let StationSchema = new Schema({
 
-  station: String,
+  name: String,
   morning: Boolean,
   location: String,
   description: String,

@@ -1,9 +1,10 @@
-const express    = require("express");
+const express = require("express");
 const parser = require("body-parser");
-const mongoose   = require("./db/connection");
+const mongoose = require("./db/connection");
+const cors = require('cors')
 
-const app        = express();
-
+const app = express();
+app.use(cors())
 
 const Station = mongoose.Station;
 const Comment = mongoose.Comment;
