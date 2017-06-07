@@ -17,9 +17,11 @@ let StationSchema = new Schema({
 
   name: String,
   morning: Boolean,
+  line: String,
+  note: String,
   location: String,
   description: String,
-  map: String,
+  map: {lat: Number, lon: Number},
   hours: {best: String, good: String},
   destinations: [String],
   returningStations: [String],
