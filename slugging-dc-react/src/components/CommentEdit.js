@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 
 
-class CommentCreate extends Component {
+class CommentEdit extends Component {
   constructor(props){
     super(props)
     this.state = {
-      name: '',
-      content: ''
+      name: this.props.comment.name,
+      content: this.props.comment.content,
+      commentId: this.props.comment._id,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
@@ -23,15 +25,21 @@ class CommentCreate extends Component {
     e.preventDefault()
     const comment = {
       name: this.state.name,
-      content: this.state.content
+      content: this.state.content,
+      commentId: this.state.commentId
     }
-    this.props.onCreate(comment)
+
+    this.props.onEdit(comment)
     this.setState({
-      name: '',
-      content: ''
+      name: comment.name,
+      content: comment.content
     })
-    this.nameInput.focus()
   }
+
+  handleClick(){
+    this.props.onDelete(this.state.commentId)
+  }
+
   handleKeyPress(e){
     if(e.charCode === 13){
       this.handleClick()
@@ -39,24 +47,23 @@ class CommentCreate extends Component {
   }
 
   render(){
+
     return(
       <form className="commentForm" onSubmit={this.handleSubmit}>
         <input
           type="text"
           name='name'
-          placeholder="Name"
           value={this.state.name}
           onChange={this.handleChange}
-          ref = {(ref)=>{this.nameInput = ref}}
         />
         <input
           type="text"
           name='content'
-          placeholder="Say something..."
           value={this.state.content}
           onChange={this.handleChange}
         />
-        <input type="submit" value="Post" />
+        <input type="submit" value="Update" />
+        <button onClick={this.handleClick}>Delete</button>
       </form>
     )
   }
@@ -64,4 +71,4 @@ class CommentCreate extends Component {
 
 
 
-export default CommentCreate
+export default CommentEdit
