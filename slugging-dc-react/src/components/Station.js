@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { StationList, Comment } from '../components'
+import { StationList, Comment, Map } from '../components'
 import axios from 'axios'
 
 
@@ -22,9 +22,6 @@ class Station extends Component {
       })
     })
     axios.get(`http://localhost:3001/api/stations/${this.props.match.params.id}`,{
-      // params: {
-      //   id: this.props.match.params.id
-      // }
     }).then((response) => {
         this.setState({
           station: response.data,
@@ -32,7 +29,6 @@ class Station extends Component {
           destinations: response.data.destinations,
           returnStation: response.data.returningStations
         })
-        // this.props.history.push("/stations/"+ this.state.station._id)
       })
   }
 
@@ -46,12 +42,11 @@ class Station extends Component {
           returnStation: response.data.returningStations
         })
       })
-    }
+  }
 
 
 
   render() {
-
     let destin = this.state.destinations.map((destination, i) => {
       return <div key={i}>
                 <li>{destination}</li>
@@ -64,6 +59,12 @@ class Station extends Component {
               <h1>{this.state.station.name}</h1>
               <h3>Location</h3>
               <p>{this.state.station.location}</p>
+              <h3>Map</h3>
+              <Map
+                containerElement={<div style={{height:300+'px'}} />}
+                mapElement={<div style={{height:300+'px'}} />}
+                address={this.state.station.map}
+              />
               <h3>Description</h3>
               <p>{this.state.station.description}</p>
               <h3>Tips to drivers</h3>
@@ -84,7 +85,6 @@ class Station extends Component {
               <Comment
                 id={this.props.match.params.id}
               />
-
           </div>
       );
   }

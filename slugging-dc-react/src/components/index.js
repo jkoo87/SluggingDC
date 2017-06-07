@@ -5,5 +5,6 @@ import StationList from './StationList'
 import Header from './Header'
 import CommentCreate from './CommentCreate'
 import CommentEdit from './CommentEdit'
+import Map from './Map'
 
-export { Comment, Search, Station, StationList, Header, CommentCreate, CommentEdit };
+export { Comment, Search, Station, StationList, Header, CommentCreate, CommentEdit, Map };

@@ -38,7 +38,6 @@ class Comment extends Component {
   }
 
   handleEdit(comment) {
-        console.log(comment)
     axios.put(`http://localhost:3001/api/stations/${this.props.id}/comments/${comment.commentId}`,
       {
         name: comment.name,
@@ -52,23 +51,23 @@ class Comment extends Component {
   }
 
   handleDelete(id) {
-    console.log("id", id)
     axios.delete(`http://localhost:3001/api/stations/${this.props.id}/comments/${id}`,
     ).then((response) => {
         this.setState({
           comments: response.data.comments
       })
+      this.handleToggle()
     })
   }
 
-  handleToggle(){
+  handleToggle(index){
+    if(this.state.isEditing === index)
+      index = undefined;
     this.setState({
+      isEditing: index,
       isUpdate: !this.state.isUpdate
     })
   }
-
-
-
 
 
     render() {
@@ -77,20 +76,20 @@ class Comment extends Component {
 
         let viewComments= this.state.comments.map((comment, i)=>{
           return <div key={i}>
-                    <li>{comment.content}({comment.name}) {comment.updatedAt} <button onClick={this.handleToggle}>Edit</button></li>
-                    <CommentEdit
-                      onEdit = {this.handleEdit}
-                      onDelete = {this.handleDelete}
-                      comment= {comment}
-                     />
+                    <li>{comment.content}({comment.name}) {comment.updatedAt} <button onClick={() => {this.handleToggle(i)}}>Edit</button></li>
+                    {this.state.isEditing === i ? <CommentEdit
+                                            onEdit = {this.handleEdit}
+                                            onDelete = {this.handleDelete}
+                                            comment= {comment}
+                                            isUpdate={this.state.isUpdate}
+                                         /> : blank}
+
                  </div>
         })
 
         return (
             <div>
                 <h2>Comment</h2>
-
-
                 <CommentCreate
                   onCreate = {this.handleCreate}
                 />

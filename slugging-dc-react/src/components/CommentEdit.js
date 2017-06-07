@@ -11,7 +11,7 @@ class CommentEdit extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
@@ -36,8 +36,11 @@ class CommentEdit extends Component {
     })
   }
 
-  handleClick(){
+  handleDelete(){
     this.props.onDelete(this.state.commentId)
+    this.setState({
+      commentId: this.props.commentId
+    })
   }
 
   handleKeyPress(e){
@@ -47,7 +50,6 @@ class CommentEdit extends Component {
   }
 
   render(){
-
     return(
       <form className="commentForm" onSubmit={this.handleSubmit}>
         <input
@@ -63,7 +65,7 @@ class CommentEdit extends Component {
           onChange={this.handleChange}
         />
         <input type="submit" value="Update" />
-        <button onClick={this.handleClick}>Delete</button>
+        <button onClick={this.handleDelete}>Delete</button>
       </form>
     )
   }
