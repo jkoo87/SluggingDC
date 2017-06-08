@@ -1,11 +1,20 @@
 let mongoose = require("./connection.js");
 let seedData = require("./seeds");
+let riderPostData = require("./riderSeeds");
 let Station = mongoose.Station;
 let Comment = mongoose.Comment;
+let RiderPost = mongoose.RiderPost;
+let RiderComment = mongoose.RiderComment;
 
 
 
 Comment.remove({}, err => {
+  if(err){
+    console.log(err)
+  }
+});
+
+RiderComment.remove({}, err => {
   if(err){
     console.log(err)
   }
@@ -34,6 +43,30 @@ Station.remove({}).then(function(){
       }
     })
   }
-
-
 });
+
+
+let ridercomment = new RiderComment  ({
+  "name": "Jkoo",
+  "content": "Do you still have a spot available?"
+})
+
+
+RiderPost.remove({}).then(function(){
+
+  const riderposts = riderPostData.map(riderpost => {
+    return new RiderPost(riderpost);
+  })
+
+
+  for(let i = 0; i < riderposts.length; i++){
+    riderposts[i].comments.push(ridercomment)
+    riderposts[i].save((err, ridercomment) =>{
+      if (err){
+        console.log(err)
+      } else {
+        console.log(ridercomment);
+      }
+    })
+  }
+})

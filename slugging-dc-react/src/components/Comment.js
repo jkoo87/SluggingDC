@@ -51,13 +51,15 @@ class Comment extends Component {
   }
 
   handleDelete(id) {
-    axios.delete(`http://localhost:3001/api/stations/${this.props.id}/comments/${id}`,
-    ).then((response) => {
-        this.setState({
-          comments: response.data.comments
+    setTimeout(()=>{
+      axios.delete(`http://localhost:3001/api/stations/${this.props.id}/comments/${id}`,
+      ).then((response) => {
+          this.setState({
+            comments: response.data.comments
+        })
+        this.handleToggle()
       })
-      this.handleToggle()
-    })
+    },3000)
   }
 
   handleToggle(index){

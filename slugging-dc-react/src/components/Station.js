@@ -47,11 +47,21 @@ class Station extends Component {
 
 
   render() {
-    let destin = this.state.destinations.map((destination, i) => {
+    const destin = this.state.destinations.map((destination, i) => {
       return <div key={i}>
                 <li>{destination}</li>
              </div>
     })
+    const blank = (<div></div>)
+    const showMap = (this.state.station.map.lat !== undefined?
+                      <Map
+                        containerElement={<div style={{height:300+'px'}} />}
+                        mapElement={<div style={{height:300+'px'}} />}
+                        address={this.state.station.map}
+                      /> : blank
+                    )
+
+
 
 
       return (
@@ -60,11 +70,7 @@ class Station extends Component {
               <h3>Location</h3>
               <p>{this.state.station.location}</p>
               <h3>Map</h3>
-              <Map
-                containerElement={<div style={{height:300+'px'}} />}
-                mapElement={<div style={{height:300+'px'}} />}
-                address={this.state.station.map}
-              />
+              {showMap}
               <h3>Description</h3>
               <p>{this.state.station.description}</p>
               <h3>Tips to drivers</h3>

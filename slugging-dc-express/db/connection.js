@@ -6,7 +6,6 @@ let Schema = mongoose.Schema;
 
 
 let CommentSchema = new Schema({
-
   name: String,
   content: String,
 }, {
@@ -14,14 +13,13 @@ let CommentSchema = new Schema({
 })
 
 let StationSchema = new Schema({
-
   name: String,
   morning: Boolean,
   line: String,
   note: String,
   location: String,
   description: String,
-  map: {lat: Number, lon: Number},
+  map: {lat: Number, lng: Number},
   hours: {best: String, good: String},
   destinations: [String],
   returningStations: [String],
@@ -32,9 +30,33 @@ let StationSchema = new Schema({
   timestamps: true
 })
 
+
+let RiderCommentSchema = new Schema({
+  name: String,
+  content: String,
+}, {
+  timestamps: true
+})
+
+let RiderPostSchema = new Schema({
+  notice: String,
+  name: String,
+  count: Number,
+  leaving: Number,
+  from: String,
+  description: String,
+  comments: [RiderCommentSchema]
+}, {
+  timestamps: true
+})
+
+
+
 let Station = mongoose.model("Station", StationSchema);
 let Comment = mongoose.model("Comment", CommentSchema);
+let RiderPost = mongoose.model("RiderPost", RiderPostSchema);
+let RiderComment = mongoose.model("RiderComment", RiderCommentSchema);
 
 module.exports = {
-  Station, Comment
+  Station, Comment, RiderPost, RiderComment
 }

@@ -9,6 +9,7 @@ class Header extends Component {
               <NavLink exact to="/" className="item" activeClassName="active" >Slugging DC</NavLink>
               <NavLink to="/about" className="item" activeClassName="active" >About</NavLink>
               <NavLink to="/stations" className="item" activeClassName="active" >Stations</NavLink>
+              <NavLink to="/need-a-ride" className="item" activeClassName="active" >Need A Ride?</NavLink>
               <NavLink to="/contact-us" className="item" activeClassName="active" >Contact Us</NavLink>
             </div>
         );
