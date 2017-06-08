@@ -77,8 +77,8 @@ class PostCreate extends Component {
     return(
       <form className="commentForm" onSubmit={this.handleSubmit}>
         <p>
-          <select name="destination" onChange={this.handleChange}>
-            <option defaultValue>Destination</option>
+          <select name="destination" onChange={this.handleChange} required>
+            <option value="">Destination</option>
             {destinations}
           </select>
         </p>
@@ -91,8 +91,8 @@ class PostCreate extends Component {
           required
           /></p>
         <p>
-          <select name="count" onChange={this.handleChange}>
-            <option defaultValue>How many people</option>
+          <select name="count" onChange={this.handleChange} required>
+            <option value="">How many people</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -107,8 +107,8 @@ class PostCreate extends Component {
           required
           /></p>
         <p>
-          <select name="leaving" onChange={this.handleChange}>
-            <option defaultValue>Leaving after..</option>
+          <select name="leaving" onChange={this.handleChange} required>
+            <option value="">Leaving after..</option>
             <option value="1">1 minute</option>
             <option value="10">10 minutes</option>
             <option value="15">15 minutes</option>
