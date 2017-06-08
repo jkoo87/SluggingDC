@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { RiderComment } from '../components'
+import { RiderComment, RiderPostEdit } from '../components'
 import axios from 'axios'
 
 class RiderPost extends Component {
@@ -7,7 +7,11 @@ class RiderPost extends Component {
   super(props)
   this.state = {
     post: [],
+    isEdit: false
     }
+  this.handleEdit = this.handleEdit.bind(this)
+  this.handleDelete = this.handleDelete.bind(this)
+  this.handleToggle = this.handleToggle.bind(this)
   }
   componentDidMount(){
     axios.get(`http://localhost:3001/api/riderPosts/${this.props.match.params.id}`).then((response) => {
@@ -17,16 +21,51 @@ class RiderPost extends Component {
     })
   }
 
+  handleEdit(post) {
+    axios.put(`http://localhost:3001/api/riderposts/${post.postId}`,
+      {
+        notice: post.notice,
+        destination: post.destination,
+        name: post.name,
+        count: post.count,
+        leaving: post.leaving,
+        from: post.from,
+        description: post.description
+      }
+    ).then((response) => {
+        this.setState({
+          post: response.data
+      })
+      this.handleToggle()
+    })
+  }
+
+  handleDelete(id) {
+    axios.delete(`http://localhost:3001/api/riderposts/${id}`,
+    ).then((response) => {
+      this.props.history.push(`/need-a-ride`)
+    })
+  }
+  handleToggle(){
+    this.setState({
+      isEdit: !this.state.isEdit
+    })
+  }
+
+
 
     render() {
+        const blank = (<div></div>)
+        const showEdit =  this.state.isEdit? <RiderPostEdit post={this.state.post} onEdit={this.handleEdit} onDelete={this.handleDelete}/> : blank
         return (
             <div>
-              <h1>Destination: {this.state.post.destination}</h1>
+              <h1>Destination: {this.state.post.destination}<button onClick={this.handleToggle}>Edit Post</button></h1>
+              {showEdit}
               <h2>NOTICE: {this.state.post.notice}</h2>
               <p>Name: {this.state.post.name}</p>
               <p>I can take up to {this.state.post.count} people</p>
               <p>Departure Time: {this.state.post.leaving} minutes</p>
-              <p>Picup Location: {this.state.post.from}</p>
+              <p>Pickup Location: {this.state.post.from}</p>
               <p>Description: {this.state.post.description} </p>
               <RiderComment
                 id={this.props.match.params.id}

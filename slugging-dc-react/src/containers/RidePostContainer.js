@@ -12,8 +12,6 @@ class RidePostContainer extends Component {
       isCreate: false
     }
     this.handleCreate = this.handleCreate.bind(this)
-    this.handleEdit = this.handleEdit.bind(this)
-    this.handleDelete = this.handleDelete.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
 
   }
@@ -41,31 +39,6 @@ class RidePostContainer extends Component {
     })
   }
 
-  handleEdit(post) {
-    axios.put(`http://localhost:3001/api/riderposts/${post._id}`,
-      {
-        destination: post.destination,
-        name: post.name,
-        count: post.count,
-        leaving: post.leaving,
-        from: post.from,
-        description: post.description
-      }
-    ).then((response) => {
-        this.setState({
-          posts: response.data
-      })
-    })
-  }
-
-  handleDelete(id) {
-    axios.delete(`http://localhost:3001/api/stations/${id}`,
-    ).then((response) => {
-        this.setState({
-          posts: response.data
-      })
-    })
-  }
   handleToggle(){
     this.setState({
       isCreate: !this.state.isCreate

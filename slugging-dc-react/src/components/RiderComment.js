@@ -89,7 +89,7 @@ class RiderComment extends Component {
 
         return (
             <div>
-                <h2>Comment</h2>
+                <h2>I need a ride!</h2>
                 <CommentCreate
                   onCreate = {this.handleCreate}
                 />

@@ -53,7 +53,7 @@ class Station extends Component {
              </div>
     })
     const blank = (<div></div>)
-    const showMap = (this.state.station.map.lat !== undefined?
+    const showMap = (this.state.station.map.lat?
                       <Map
                         containerElement={<div style={{height:300+'px'}} />}
                         mapElement={<div style={{height:300+'px'}} />}

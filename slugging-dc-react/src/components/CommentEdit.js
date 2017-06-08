@@ -7,7 +7,7 @@ class CommentEdit extends Component {
     this.state = {
       name: this.props.comment.name,
       content: this.props.comment.content,
-      commentId: this.props.comment._id,
+      commentId: this.props.comment._id
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
