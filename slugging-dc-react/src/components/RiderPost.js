@@ -7,16 +7,20 @@ class RiderPost extends Component {
   super(props)
   this.state = {
     post: [],
+    carType: [],
     isEdit: false
     }
   this.handleEdit = this.handleEdit.bind(this)
   this.handleDelete = this.handleDelete.bind(this)
   this.handleToggle = this.handleToggle.bind(this)
+  this.postExpired = this.postExpired.bind(this)
   }
   componentDidMount(){
     axios.get(`http://localhost:3001/api/riderPosts/${this.props.match.params.id}`).then((response) => {
       this.setState({
-        post: response.data
+        post: response.data,
+        carType: response.data.carType
+
       })
     })
   }
@@ -43,6 +47,7 @@ class RiderPost extends Component {
   handleDelete(id) {
     axios.delete(`http://localhost:3001/api/riderposts/${id}`,
     ).then((response) => {
+      alert("Post has been successfully deleted")
       this.props.history.push(`/need-a-ride`)
     })
   }
@@ -52,9 +57,21 @@ class RiderPost extends Component {
     })
   }
 
+  postExpired(){
+    const timeNow = new Date()
+    const getExpiredTime= new Date(this.state.post.updatedAt)
+    getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + this.state.post.leaving );
+    if(timeNow >= getExpiredTime){
+      console.log("chnage!")
+      this.handleDelete(this.state.post._id)
+    }
+  }
+
 
 
     render() {
+        this.postExpired()
+
         const blank = (<div></div>)
         const showEdit =  this.state.isEdit? <RiderPostEdit post={this.state.post} onEdit={this.handleEdit} onDelete={this.handleDelete}/> : blank
         return (

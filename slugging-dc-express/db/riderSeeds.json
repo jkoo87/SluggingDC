@@ -6,7 +6,8 @@
     "count": 3,
     "leaving": 10,
     "from": "1155 NW st. Washington DC 22013",
-    "description": "Please let me know if you are leaving near by the address provided. My car is silver 2010 hyundai Sonata"
+    "description": "Please let me know if you are leaving near by the address provided. My car is silver 2010 hyundai Sonata",
+    "carType": {"make": "honda", "model": "accord", "year": "2015", "color": "black"}
   },
   {
     "notice": "Please be completely ready to go and waiting at your pickup location!",
@@ -15,6 +16,7 @@
     "count": 3,
     "leaving": 10,
     "from": "1155 NW st. Washington DC 22013",
-    "description": "Please let me know if you are leaving near by the address provided. My car is silver 2010 hyundai Sonata"
+    "description": "Please let me know if you are leaving near by the address provided. My car is silver 2010 hyundai Sonata",
+    "carType": {"make": "honda", "model": "accord", "year": "2015", "color": "silver"}
   }
 ]

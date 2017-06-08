@@ -72,7 +72,7 @@ class Comment extends Component {
 
 
     render() {
-        // console.log(new Date())
+
         const blank = (<div></div>)
 
         let viewComments= this.state.comments.map((comment, i)=>{

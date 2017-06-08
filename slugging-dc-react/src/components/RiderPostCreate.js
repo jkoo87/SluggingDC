@@ -75,7 +75,7 @@ class PostCreate extends Component {
     })
 
     return(
-      <form className="commentForm" onSubmit={this.handleSubmit}>
+      <form className="commentForm" onSubmit={this.handleSubmit} >
         <p>
           <select name="destination" onChange={this.handleChange} required>
             <option value="">Destination</option>

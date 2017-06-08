@@ -36,6 +36,7 @@ class RidePostContainer extends Component {
     ).then((response) => {
       this.handleToggle()
       this.props.history.push(`/need-a-ride/${response.data._id}`)
+      alert("Post has been successfully created")
     })
   }
 

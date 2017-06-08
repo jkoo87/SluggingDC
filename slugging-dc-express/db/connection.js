@@ -46,6 +46,7 @@ let RiderPostSchema = new Schema({
   leaving: Number,
   from: String,
   description: String,
+  carType: {make: String, model: String, year: String, color: String},
   comments: [RiderCommentSchema]
 }, {
   timestamps: true
