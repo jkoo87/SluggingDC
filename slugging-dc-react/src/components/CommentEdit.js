@@ -57,12 +57,14 @@ class CommentEdit extends Component {
           name='name'
           value={this.state.name}
           onChange={this.handleChange}
+          required
         />
         <input
           type="text"
           name='content'
           value={this.state.content}
           onChange={this.handleChange}
+          required
         />
         <input type="submit" value="Update" />
         <button onClick={this.handleDelete}>Delete</button>

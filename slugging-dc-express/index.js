@@ -158,7 +158,7 @@ app.delete("/api/riderposts/:id", function(req, res){
 app.delete("/api/riderposts/:id/ridercomments/:ridercomment_id", function(req, res){
   RiderPost.findOne({_id: req.params.id}).then(function(riderPost){
     for (let i = 0; i < riderPost.comments.length; i++){
-      if (riderPost.comments[i]._id == req.params.comment_id) {
+      if (riderPost.comments[i]._id == req.params.ridercomment_id) {
         riderPost.comments.splice(i, 1)
       }
     }

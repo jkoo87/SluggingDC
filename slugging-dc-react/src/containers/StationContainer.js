@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
-import { StationList } from '../components'
+import { StationList} from '../components'
 import axios from 'axios'
 
 class StationContainer extends Component {
   constructor(props){
-  super(props)
-  this.state = {
-    stations: []
-  }
+    super(props)
+    this.state = {
+      stations: []
+    }
   }
   componentDidMount(){
     axios.get("http://localhost:3001/api/stations").then((response) => {

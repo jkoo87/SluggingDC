@@ -1,6 +1,7 @@
 [
   {
-    "notice": "Riders WILL NOT wait for you. BE THERE ON TIME!",
+    "notice": "Please be completely ready to go and waiting at your pickup location!",
+    "destination": "Rolling Valley Mall",
     "name": "Jkoo",
     "count": 3,
     "leaving": 10,
@@ -8,7 +9,8 @@
     "description": "Please let me know if you are leaving near by the address provided. My car is silver 2010 hyundai Sonata"
   },
   {
-    "notice": "Riders WILL NOT wait for you. BE THERE ON TIME!",
+    "notice": "Please be completely ready to go and waiting at your pickup location!",
+    "destination": "Bob's",
     "name": "Jkoo",
     "count": 3,
     "leaving": 10,

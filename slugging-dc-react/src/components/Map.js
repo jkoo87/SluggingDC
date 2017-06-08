@@ -5,7 +5,6 @@ class Map extends Component {
 
     render() {
         return (
-
             <GoogleMap
               defaultZoom={15}
               defaultCenter={{ lat: this.props.address.lat, lng: this.props.address.lng }}>

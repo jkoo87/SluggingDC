@@ -60,10 +60,6 @@ class Station extends Component {
                         address={this.state.station.map}
                       /> : blank
                     )
-
-
-
-
       return (
           <div>
               <h1>{this.state.station.name}</h1>

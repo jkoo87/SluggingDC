@@ -48,6 +48,7 @@ class CommentCreate extends Component {
           value={this.state.name}
           onChange={this.handleChange}
           ref = {(ref)=>{this.nameInput = ref}}
+          required
         />
         <input
           type="text"
@@ -55,7 +56,8 @@ class CommentCreate extends Component {
           placeholder="Say something..."
           value={this.state.content}
           onChange={this.handleChange}
-        />
+          required
+          />
         <input type="submit" value="Post" />
       </form>
     )
