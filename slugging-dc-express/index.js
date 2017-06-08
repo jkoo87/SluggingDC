@@ -111,6 +111,104 @@ app.put("/api/stations/:id/comments/:comment_id", function(req, res){
 
 
 
+const RiderPost = mongoose.RiderPost;
+const RiderComment = mongoose.RiderComment;
+
+
+app.get("/api/riderposts", function(req, res){
+  RiderPost.find({}).then (function(riderPosts){
+    res.json(riderPosts);
+  });
+});
+
+app.get("/api/riderposts/:id", function(req, res){
+  RiderPost.findOne({_id: req.params.id}).then(function(riderPost){
+    res.json(riderPost)
+  });
+});
+
+app.post("/api/riderposts", function(req, res){
+  RiderPost.create(req.body).then(function(riderPost){
+    console.log(req.body)
+    res.json(riderPost)
+  });
+});
+
+app.post("/api/riderposts/:id/ridercomments", function(req, res){
+  let riderPost = RiderPost.findOne({_id: req.params.id}).then(function(riderPost){
+    let newRiderComment = new RiderComment(req.body)
+      console.log(req.body)
+    riderPost.comments.push(newRiderComment)
+    riderPost.save((err, newRiderComment) =>{
+      if (err){
+        console.log(err)
+      } else {
+        res.json(newRiderComment)
+      }
+    })
+  })
+});
+
+app.delete("/api/riderposts/:id", function(req, res){
+  RiderPost.findOneAndRemove({_id: req.params.id}).then(function(){
+    res.json({ msg: "success" })
+  });
+});
+
+app.delete("/api/riderposts/:id/ridercomments/:ridercomment_id", function(req, res){
+  RiderPost.findOne({_id: req.params.id}).then(function(riderPost){
+    for (let i = 0; i < riderPost.comments.length; i++){
+      if (riderPost.comments[i]._id == req.params.comment_id) {
+        riderPost.comments.splice(i, 1)
+      }
+    }
+    riderPost.save((err, riderPost) =>{
+      if (err){
+        console.log(err)
+      } else {
+        res.json(riderPost)
+      }
+    })
+  })
+});
+
+app.put("/api/riderposts/:id", function(req, res){
+  RiderPost.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}).then(function(riderPost){
+    res.json(riderPost)
+  });
+});
+
+
+app.get("/api/riderposts/:id/ridercomments/:ridercomment_id", function(req, res){
+
+  RiderPost.findOne({_id: req.params.id}).then(function(riderPost){
+    let riderComment = riderPost.comments.find(function(riderComment){
+      return riderComment._id == req.params.ridercomment_id;
+    })
+  res.json(riderComment)
+  })
+});
+
+app.put("/api/riderposts/:id/ridercomments/:ridercomment_id", function(req, res){
+
+  RiderPost.findOne({_id: req.params.id}).then(function(riderPost){
+    let ridercomment = riderPost.comments.find(function(ridercomment){
+      return ridercomment._id == req.params.ridercomment_id;
+    })
+    ridercomment.content = req.body.content
+    ridercomment.name = req.body.name
+    riderPost.save((err, ridercomment) =>{
+      if (err){
+        console.log(err)
+      } else {
+        console.log("comment", ridercomment)
+        res.json(ridercomment)
+      }
+    })
+  })
+});
+
+
 app.get("/*", function(req, res) {
   res.render("stations");
 });
