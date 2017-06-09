@@ -18,7 +18,7 @@ class StationList extends Component {
           } else if(this.props.sortBy === station.morning  && this.props.line === station.line){
               return station.name.toLowerCase()
                 .indexOf(this.props.keyword.toLowerCase()) > -1
-            } else if (this.props.sortBy === "all" || this.props.sortBy === "" || this.props.line === station.line) {
+            } else if (this.props.sortBy === "all" || this.props.line === station.line) {
               return station.name.toLowerCase()
                 .indexOf(this.props.keyword.toLowerCase()) > -1
             }

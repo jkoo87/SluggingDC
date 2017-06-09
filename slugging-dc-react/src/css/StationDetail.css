@@ -1,6 +1,24 @@
+.stationDetailBody{
+  background: url("./img/road.png")no-repeat center;
+  height: 100vh;
+  background-size: cover;
+  animation: backgroundEnter 5s linear;
+  overflow: scroll;
+}
+
+
 .stationDetailWrapper{
+  color: white;
+  text-shadow: 1px 1px 3px rgba(10,10,0, 1);
+  font-size: 110%;
   margin: 0 auto;
   width: 85%;
+  padding: 30px;
+  background-color: red;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  border-radius: 50px;
+  background-color: rgba(22, 22, 20, 0.5);
 }
 
 .stationDetailTitle{
@@ -11,16 +29,26 @@
   color: white;
   padding: 0 20px 0 20px;
   background-color: rgba(230, 230, 230, 0.5);
-  text-shadow: 1px 1px 8px rgba(10,10,0, 1);
   animation: textFlip 1s linear;
 }
 
-.mapDescriptionWrapper{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.stationDetailWrapper h3{
+  font-size: 30px;
+  margin: 0;
+  text-decoration: underline;
 }
 
-.mapDescriptionWrapper div{
-  width:50%;
+.commentWrapper{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.commentWrapper h1{
+  margin: 50px 0 0 0;
+}
+
+
+.commentViewWrapper{
+
 }

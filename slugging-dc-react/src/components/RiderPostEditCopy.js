@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-class PostCreate extends Component {
+class PostEdit extends Component {
   constructor(props){
     super(props)
     this.state = {
       stations: [],
-      notice: 'Please be completely ready to go and waiting at your pickup location!',
-      destination: '',
-      line: '',
-      name: '',
-      count: '',
-      leaving: '',
-      from: '',
-      description: ''
+      notice: this.props.post.notice,
+      destination: this.props.post.destination,
+      name: this.props.post.name,
+      count: this.props.post.count,
+      leaving: this.props.post.leaving,
+      from: this.props.post.from,
+      description: this.props.post.description,
+      postId: this.props.post._id
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.handleLineChange = this.handleLineChange.bind(this)
   }
   componentDidMount(){
     axios.get("http://localhost:3001/api/stations").then((response) => {
@@ -40,22 +40,28 @@ class PostCreate extends Component {
     const post = {
       notice: this.state.notice,
       destination: this.state.destination,
-      line: this.state.line,
       name: this.state.name,
       count: this.state.count,
       leaving: this.state.leaving,
       from: this.state.from,
-      description: this.state.description
+      description: this.state.description,
+      postId: this.state.postId
     }
-    this.props.onCreate(post)
+    this.props.onEdit(post)
     this.setState({
-      destination: '',
-      line:'',
-      name: '',
-      count: '',
-      leaving: '',
-      from: '',
-      description: ''
+      notice: this.state.notice,
+      destination: post.destination,
+      name: post.name,
+      count: post.count,
+      leaving: post.leaving,
+      from: post.from,
+      description: post.description
+    })
+  }
+  handleDelete(){
+    this.props.onDelete(this.state.postId)
+    this.setState({
+      postId: this.props.postId
     })
   }
   handleKeyPress(e){
@@ -63,53 +69,45 @@ class PostCreate extends Component {
       this.handleClick()
     }
   }
-  handleLineChange(e){
-    this.setState({
-      line: e.target.value
-    })
-  }
 
   render(){
-    console.log(this.state.line)
-    const AmLines = ["Springfield/Lorton Lines", "Woodbridge/Dale City", "Stafford Lines", "Fredericksburg Lines", "I-66/Manassas Lines"]
-    const showLines = AmLines.map((line, i) => {
-        return  (<option key={i} value={line}>{line}</option>)
-      })
+    const morningStationList = []
 
-    const destinations = this.state.stations.map((station, i)=>{
-      if(this.state.line === station.line){
-          return(<option key={i} value={station.name}>{station.name}</option>)
-      }
-      return destinations
+    this.state.stations.filter((station) =>{
+        if (station.morning === true){
+          morningStationList.push(station.name)
+        }
+        return morningStationList
     })
 
+    const destinations = morningStationList.map((destination, i) => {
+      return  <option key={i} value={destination}>{destination}</option>
+    })
 
     return(
-      <div className="riderCommentFormWrapper">
-      <form className="riderCommentForm" onSubmit={this.handleSubmit} >
-        <h1 className="commentFormTitle">Create New Post</h1>
+      <form className="commentForm" onSubmit={this.handleSubmit}>
         <p>
-        <select name="Sort By City Lines"  onChange={this.handleLineChange} required>
-          <option value="all">Sort By City Lines</option>
-          {showLines}
-        </select>
-        </p>
-        <p>
-          <select name="destination" onChange={this.handleChange} required>
+          <select name="destination" value={this.state.destination}  onChange={this.handleChange} required>
             <option value="">Destination</option>
             {destinations}
           </select>
         </p>
         <p><input
           type="text"
+          name='notice'
+          value={this.state.notice}
+          onChange={this.handleChange}
+          required
+          /></p>
+        <p><input
+          type="text"
           name='name'
-          placeholder="Your Name"
           value={this.state.name}
           onChange={this.handleChange}
           required
           /></p>
         <p>
-          <select name="count" onChange={this.handleChange} required>
+          <select name="count" value={this.state.count} onChange={this.handleChange} required>
             <option value="">How many people</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -119,13 +117,12 @@ class PostCreate extends Component {
         <p><input
           type="text"
           name='from'
-          placeholder="Leaving From..."
           value={this.state.from}
           onChange={this.handleChange}
           required
           /></p>
         <p>
-          <select name="leaving" onChange={this.handleChange} required>
+          <select name="leaving" value={this.state.leaving} onChange={this.handleChange} required>
             <option value="">Leaving after..</option>
             <option value="1">1 minute</option>
             <option value="10">10 minutes</option>
@@ -138,19 +135,18 @@ class PostCreate extends Component {
         </p>
         <p><textarea
           name='description'
-          placeholder="Description including car info"
           value={this.state.description}
           onChange={this.handleChange}
           required
           />
         </p>
         <p><input type="submit" value="Post" /></p>
+        <button onClick={this.handleDelete}>Delete</button>
       </form>
-      </div>
     )
   }
 }
 
 
 
-export default PostCreate
+export default PostEdit

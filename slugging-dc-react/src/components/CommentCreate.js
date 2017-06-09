@@ -41,6 +41,7 @@ class CommentCreate extends Component {
   render(){
     return(
       <form className="commentForm" onSubmit={this.handleSubmit}>
+        <p>
         <input
           type="text"
           name='name'
@@ -50,6 +51,8 @@ class CommentCreate extends Component {
           ref = {(ref)=>{this.nameInput = ref}}
           required
         />
+        </p>
+        <p>
         <input
           type="text"
           name='content'
@@ -58,7 +61,8 @@ class CommentCreate extends Component {
           onChange={this.handleChange}
           required
           />
-        <input type="submit" value="Post" />
+          </p>
+        <p><input type="submit" value="Post" /></p>
       </form>
     )
   }

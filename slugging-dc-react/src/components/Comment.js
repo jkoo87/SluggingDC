@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { CommentCreate, CommentEdit } from '../components'
 import axios from 'axios'
+import '../css/StationDetail.css'
 
 class Comment extends Component {
   constructor(props){
@@ -77,7 +78,7 @@ class Comment extends Component {
 
         let viewComments= this.state.comments.map((comment, i)=>{
           return <div key={i}>
-                    <li>{comment.content}({comment.name}) {comment.updatedAt} <button onClick={() => {this.handleToggle(i)}}>Edit</button></li>
+                    <div>{comment.content}({comment.name}) {comment.updatedAt} <button onClick={() => {this.handleToggle(i)}}>Edit</button></div>
                     {this.state.isEditing === i ? <CommentEdit
                                             onEdit = {this.handleEdit}
                                             onDelete = {this.handleDelete}
@@ -89,14 +90,14 @@ class Comment extends Component {
         })
 
         return (
-            <div>
-                <h2>Comment</h2>
+            <div className="commentWrapper">
+                <h1>Comment</h1>
                 <CommentCreate
                   onCreate = {this.handleCreate}
                 />
-                <ul>
+                <div className="commentViewWrapper">
                 {viewComments}
-                </ul>
+                </div>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
+import '../css/RiderPostList.css'
 
 class RiderPostList extends Component {
 
@@ -30,14 +31,18 @@ class RiderPostList extends Component {
         })
 
       const postList = posts.map((post, i) => {
+        const getExpiredTime= new Date(post.updatedAt)
+        getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + post.leaving );
+        const departureHour = JSON.stringify(getExpiredTime.getHours())
+        const departureMinutes = JSON.stringify(getExpiredTime.getMinutes())
         let pathname = `/need-a-ride/${post._id}`
         return <div key={i}>
-                  <Link to={pathname}>{post.destination}</Link>
+                  <Link to={pathname}>{post.destination}<br />Leaving {departureHour}:{departureMinutes}<br/>(Up to {post.count} ppl)</Link>
                </div>
       })
 
       return (
-          <div>
+          <div className="riderListWrapper">
               {postList}
           </div>
       )

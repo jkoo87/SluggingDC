@@ -56,8 +56,8 @@ class Station extends Component {
     const blank = (<div></div>)
     const showMap = (this.state.station.map.lat?
                       <Map
-                        containerElement={<div style={{height:300+'px'}} />}
-                        mapElement={<div style={{height:300+'px'}} />}
+                        containerElement={<div style={{height:230+'px', width: 80+'%'}} />}
+                        mapElement={<div style={{height:200+'px'}} />}
                         address={this.state.station.map}
                       /> : blank
                     )
@@ -67,16 +67,12 @@ class Station extends Component {
               <div className="stationDetailTitle">{this.state.station.name}</div>
               <h3>Location</h3>
               <p>{this.state.station.location}</p>
-              <div className="mapDescriptionWrapper">
-                <div>
-                  <h3>Map</h3>
-                  {showMap}
-                </div>
-                <div>
-                  <h3>Description</h3>
-                  <p>{this.state.station.description}</p>
-                </div>
+              <div>
+                <h3>Map</h3>
+                {showMap}
               </div>
+              <h3>Description</h3>
+              <p>{this.state.station.description}</p>
               <h3>Tips to drivers</h3>
               <p>{this.state.station.driver}</p>
               <h3>Parking Info</h3>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { RiderPostList, RiderPostCreate, RideSearch  } from '../components'
 import axios from 'axios'
+import '../css/needRide.css'
 
 
 class RidePostContainer extends Component {
@@ -83,21 +84,25 @@ class RidePostContainer extends Component {
         const showCreate =  this.state.isCreate? <RiderPostCreate posts={this.state.stations} onCreate={this.handleCreate}/> : blank
 
         return (
-          <div>
-            <h1>Need A Ride?<button onClick={this.handleToggle}>Create New Post</button></h1>
-            {showCreate}
-            <RideSearch
-              line={this.state.line}
-              keyword={this.state.keyword}
-              handleKeywordChange={this.handleKeywordChange}
-              handleLineChange={this.handleLineChange}
-            />
-            <RiderPostList
-              line={this.state.line}
-              keyword={this.state.keyword}
-              posts={this.state.posts}
-              postExpired={this.postExpired}
-            />
+          <div className="riderPostContainer">
+              <div className="riderPostWrapper">
+                <h1 className="riderPostTitle">Need A Ride?</h1>
+                <button className="createButton" onClick={this.handleToggle}>Create New Post</button>
+
+                {showCreate}
+                <RideSearch
+                  line={this.state.line}
+                  keyword={this.state.keyword}
+                  handleKeywordChange={this.handleKeywordChange}
+                  handleLineChange={this.handleLineChange}
+                />
+                <RiderPostList
+                  line={this.state.line}
+                  keyword={this.state.keyword}
+                  posts={this.state.posts}
+                  postExpired={this.postExpired}
+                />
+              </div>
           </div>
         )
     }
