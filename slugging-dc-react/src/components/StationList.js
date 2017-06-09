@@ -11,10 +11,10 @@ class StationList extends Component {
       this.props.stations.sort((a,b)=>{return a-b})
       stations = this.props.stations.filter(
         (station) => {
-          if(this.props.sortBy === "am" && station.morning === true && this.props.line === station.line ){
+          if(this.props.sortBy ===  station.morning && this.props.line === station.line ){
           return station.name.toLowerCase()
             .indexOf(this.props.keyword.toLowerCase()) > -1
-          } else if(this.props.sortBy === "pm" && station.morning === false && this.props.line === station.line){
+          } else if(this.props.sortBy === station.morning  && this.props.line === station.line){
               return station.name.toLowerCase()
                 .indexOf(this.props.keyword.toLowerCase()) > -1
             } else if (this.props.sortBy === "all" || this.props.sortBy === "" || this.props.line === station.line) {

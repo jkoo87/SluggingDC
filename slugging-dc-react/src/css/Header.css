@@ -17,6 +17,7 @@
 
 .item:hover {
   background: grey;
+  transition: 1s ease-out;
 }
 
 .item:active, .item.active {

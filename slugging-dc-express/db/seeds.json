@@ -1,7 +1,7 @@
 [
   {
     "name": "Bob's",
-    "morning": false,
+    "morning": "false",
     "line": "Springfield/Lorton Lines",
     "location": "Just west of I-95 near the intersection of Old Keene Mill Road and Bland Street in Springfield, VA near the Springfield Town Center (aka Springfield Mall). The line itself is across the street from the parking by the gas station off of Old Keene Mill Road.",
     "description": "This location has undergone the test of time.  Although the construction of the \"Mixing Bowl\" disrupted this line for a short time, it is currently in full operation.  Because of some of the changes there are a few names to describe this location (Bob's, Springfield Plaza, Long John Silvers, Chi Chi's).  All names are actually the same slug line. There are two slug lines that operate out of the commuter lot. Line #1: L’Enfant Plaza and 14th street. Line #2: 18th Street locations (sometimes called Memorial Bridge).",
@@ -14,7 +14,7 @@
   },
   {
     "name": "Braddock Road",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "location": "Along Braddock road (East Bound) from Ox Rd (123) to I-495.",
     "description": "Slugs will have Mark Center or Pentagon signs displayed.  Slugs will be standing at bus stops and/or other paved areas so that drivers can easily and safely move out of traffic to pick up riders.",
@@ -27,7 +27,7 @@
   },
   {
     "name": "Cardinal Forest Shopping Center",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "location": "Springfield, near the intersection of Old Keene Mill Road and Rolling Road.",
     "description": "The Cardinal Forest (occasionally called Rolling Road) slug line operates next to the Shell station on Old Keene Mill Road, across from the Cardinal Forest Shopping Area. Slugs stand a few yards from the bus stop, actually putting them on the edge of the Springfield Golf and Country Club parking lot.",
@@ -40,7 +40,7 @@
   },
   {
     "name": "Daventry Subdivision",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "location": "Location: Near the intersection of Old Keene Mill Road and Hunter Village Drive in Springfield, VA.",
     "description": "The Daventry slug line is located in the Daventry Subdivision. The line has located about 50 yards south on Hunter Village Drive. Slugs wait on the right shoulder on northbound Hunter Village Rd.  The carpool location is marked with signage on the shoulder.",
@@ -53,7 +53,7 @@
   },
   {
     "name": "Lorton VRE ",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "location": "Exit 163 off I-95 (Commuter Rail Station) Actual address is 8990 Lorton Station Blvd, Lorton, VA 22079 however, Yahoo maps does not place it there. Instead try 7999 Lorton Road, Lorton, VA  22079",
     "description": "The slug line is located just off Lorton Station Road at the Lorton VRE station. The line forms on the main road entering the Lorton VRE Station and commuter lot prior to the covered bus shelter. There is no dedicated slug-line at the Pentagon for return rides to this location. Most people who slug to the Pentagon or L'Enfant return to Lorton via bus or train.",
@@ -66,7 +66,7 @@
   },
   {
     "name": "Huntsman and Sydenstricker",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "note": "this line maybe out of operation due to the new Park and Ride Lot at Sydenstricker.",
     "location": "Springfield, near the intersection of Huntsman Boulevard and Sydenstricker Road.",
@@ -80,7 +80,7 @@
   },
   {
     "name": "Rolling Valley Mall",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "location": "Springfield/Burke, in the commuter lot near the intersection of 9300 Old Keene Mill Road and Shiplett Boulevard.",
     "description": "Operates in the commuter lot next to the shopping center. Normally, slugs stand next to the bus stop in the center of the parking area.",
@@ -93,7 +93,7 @@
   },
   {
     "name": "Saratoga Park and Ride",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "location": "Saratoga Park and Ride, Intersection of Barta Rd and Fairfax County Parkway, Springfield, VA 22153",
     "description": "this line is just forming.  Slugs and drivers use the Sydenstricker commuter lot but this new location is emerging.  The Saratoga lot has 2 bus routes to and from the Pentagon. They are Fairfax County Connector Routes 393 and 394. The Saratoga lot is very large and underutilized. It is also about half a mile from the Fairfax County Parkway and Rolling Road intersection. The two closest commuter lots to Saratoga are Sydenstricker and Gambrill. Both lots fill up early and there is little \"spill over\" parking in the adjoining neighborhoods. Most people are unaware of the Saratoga lot. From the Pentagon, coming home, Saratoga sluggers can use the same line for Sydenstricker and Rolling Valley (Springfield/Burke stop).",
@@ -106,7 +106,7 @@
   },
   {
     "name": "Sydenstricker Commuter Lot",
-    "morning": true,
+    "morning": "am",
     "line": "Springfield/Lorton Lines",
     "location": "West Springfield, near the intersection of Sydenstricker and Hooes Road (Hwy 640) adjacent to the Fairfax County Parkway (Hwy 7100).",
     "description": "West Springfield, near the intersection of Sydenstricker and Hooes Road (Hwy 640) adjacent to the Fairfax County Parkway (Hwy 7100). The Gambrill commuter lot located just to the east of the Sydenstricker lot is not used for slugging but for carpools.",
@@ -119,7 +119,7 @@
   },
   {
     "name": "Rt.123 and I95 ",
-    "morning": true,
+    "morning": "am",
     "line": "Woodbridge/Dale City",
     "note": "The Tyson's Corner destination is just emerging as of October 2016. Very little information is available at this time.",
     "location": "The Rt. 123/I95 Commuter lot is located at the intersection of Rt. 123 and I95 (near exit 160)",

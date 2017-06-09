@@ -1,0 +1,49 @@
+.homeBody {
+  background: url("./img/background.jpg")no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  transition: 2.5s ease-out;
+}
+.homeBody > * {
+  font-size: 70px;
+}
+
+.titleWrapper{
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-shadow: 4px 5px 2px rgba(122,212,129, 1);
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+.titleWrapper >* {
+  margin: 200px 0 0 0;
+}
+.title {
+  font-size: calc(60px + 5vw);
+  z-index: 999;
+  top: 150px;
+
+}
+.d{
+  font-size: calc(110px + 5vw);
+  z-index: 2;
+}
+.c{
+  font-size: calc(40px + 5vw);
+}
+.subWrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subWrapper > *{
+  margin: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 10px;
+  background-color: rgba(230, 230, 230, 0.6);
+
+}

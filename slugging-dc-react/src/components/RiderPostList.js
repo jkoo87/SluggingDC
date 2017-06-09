@@ -11,7 +11,6 @@ class RiderPostList extends Component {
       let posts = null
       posts = this.props.posts.filter(
         (post) => {
-          console.log(this.props.line, "post",post.line)
           if(this.props.line === post.line){
           return (post.destination.toLowerCase()
             .indexOf(this.props.keyword.toLowerCase()) > -1)

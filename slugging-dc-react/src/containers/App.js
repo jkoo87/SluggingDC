@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import '../css/App.css';
+import React, { Component } from 'react'
+import '../css/App.css'
 import { About, Home, StationContainer, RidePostContainer, ContactUs } from './'
 import { Header, Station, RiderPost} from '../components'
 import {
