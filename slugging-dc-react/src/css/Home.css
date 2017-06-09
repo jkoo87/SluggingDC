@@ -14,8 +14,17 @@
   position: relative;
   display: flex;
   justify-content: center;
-  text-shadow: 4px 5px 2px rgba(122,212,129, 1);
+  text-shadow: 4px 5px 20px rgba(122,212,129, 1);
   font-family: 'Montserrat Subrayada', sans-serif;
+  animation: colorChange 5s linear infinite;
+}
+@keyframes colorChange{
+  from {
+    text-shadow: 4px 5px 20px rgba(122,212,129, 1);
+  }
+  to {
+    text-shadow: 4px 5px 20px rgba(229,222,19, 1);
+  }
 }
 .titleWrapper >* {
   margin: 200px 0 0 0;
@@ -39,11 +48,34 @@
   justify-content: center;
   align-items: center;
 }
+
 .subWrapper > *{
+  color: white;
   margin: 0;
   padding-right: 20px;
   padding-left: 20px;
   margin: 0 10px;
   background-color: rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 8px rgba(10,10,0, 1);
+}
+.sub1{
+  animation: textFlip 2s linear;
+}
+.sub2{
+  animation: textFlip 3s linear;
+}
+.sub3{
+  animation: textFlip 4s linear;
+}
+.sub4{
+  animation: textFlip 5s linear;
+}
 
+@keyframes textFlip{
+  from {
+    transform: rotateX( 90deg )
+  }
+  to {
+    transform: rotateX( 360deg );
+  }
 }

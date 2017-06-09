@@ -12,9 +12,9 @@ class Home extends Component {
                 </div>
                 <div className="subWrapper">
                   <div className="sub1">No</div>
-                  <div>More</div>
-                  <div>Traffic</div>
-                  <div>Jams</div>
+                  <div className="sub2">More</div>
+                  <div className="sub3">Traffic</div>
+                  <div className="sub4">Jams</div>
                 </div>
             </div>
         );
