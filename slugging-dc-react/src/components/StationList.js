@@ -7,21 +7,21 @@ class StationList extends Component {
   render() {
     let stations = null
     let matchStations = []
-
-
     if (this.props.station === undefined) {
+      this.props.stations.sort((a,b)=>{return a-b})
       stations = this.props.stations.filter(
         (station) => {
-          if(this.props.sortBy === "am" && station.morning === true){
+          if(this.props.sortBy === "am" && station.morning === true && this.props.line === station.line ){
           return station.name.toLowerCase()
             .indexOf(this.props.keyword.toLowerCase()) > -1
-          } else if(this.props.sortBy === "pm" && station.morning === false){
+          } else if(this.props.sortBy === "pm" && station.morning === false && this.props.line === station.line){
               return station.name.toLowerCase()
                 .indexOf(this.props.keyword.toLowerCase()) > -1
-            } else if (this.props.sortBy === "all" || this.props.sortBy === "") {
+            } else if (this.props.sortBy === "all" || this.props.sortBy === "" || this.props.line === station.line) {
               return station.name.toLowerCase()
                 .indexOf(this.props.keyword.toLowerCase()) > -1
             }
+            return stations
         }
       )
       stations = stations.map((station, i) => {
@@ -29,8 +29,8 @@ class StationList extends Component {
         return <div key={i}>
                   <Link to={pathname}>{station.name}</Link>
                </div>
-      })
-    } else {
+        })
+      } else {
         for (let i = 0; i < this.props.returnStation.length; i++){
           this.props.stations.filter((station) =>{
               if (station.name.toLowerCase() === this.props.station.returningStations[i].toLowerCase()){

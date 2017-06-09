@@ -9,6 +9,7 @@ class PostCreate extends Component {
       stations: [],
       notice: 'Please be completely ready to go and waiting at your pickup location!',
       destination: '',
+      line: '',
       name: '',
       count: '',
       leaving: '',
@@ -18,6 +19,7 @@ class PostCreate extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleLineChange = this.handleLineChange.bind(this)
   }
   componentDidMount(){
     axios.get("http://localhost:3001/api/stations").then((response) => {
@@ -38,6 +40,7 @@ class PostCreate extends Component {
     const post = {
       notice: this.state.notice,
       destination: this.state.destination,
+      line: this.state.line,
       name: this.state.name,
       count: this.state.count,
       leaving: this.state.leaving,
@@ -47,6 +50,7 @@ class PostCreate extends Component {
     this.props.onCreate(post)
     this.setState({
       destination: '',
+      line:'',
       name: '',
       count: '',
       leaving: '',
@@ -59,23 +63,35 @@ class PostCreate extends Component {
       this.handleClick()
     }
   }
+  handleLineChange(e){
+    this.setState({
+      line: e.target.value
+    })
+  }
 
   render(){
-    const morningStationList = []
+    console.log(this.state.line)
+    const AmLines = ["Springfield/Lorton Lines", "Woodbridge/Dale City", "Stafford Lines", "Fredericksburg Lines", "I-66/Manassas Lines"]
+    const showLines = AmLines.map((line, i) => {
+        return  (<option key={i} value={line}>{line}</option>)
+      })
 
-    this.state.stations.filter((station) =>{
-        if (station.morning === true){
-          morningStationList.push(station.name)
-        }
-        return morningStationList
+    const destinations = this.state.stations.map((station, i)=>{
+      if(this.state.line === station.line){
+          return(<option key={i} value={station.name}>{station.name}</option>)
+      }
+      return destinations
     })
 
-    const destinations = morningStationList.map((destination, i) => {
-      return  <option key={i} value={destination}>{destination}</option>
-    })
 
     return(
       <form className="commentForm" onSubmit={this.handleSubmit} >
+        <p>
+        <select name="Sort By City Lines"  onChange={this.handleLineChange} required>
+          <option value="all">Sort By City Lines</option>
+          {showLines}
+        </select>
+        </p>
         <p>
           <select name="destination" onChange={this.handleChange} required>
             <option value="">Destination</option>

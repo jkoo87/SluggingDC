@@ -8,10 +8,12 @@ class StationContainer extends Component {
     this.state = {
       stations: [],
       keyword: '',
-      sortBy: ''
+      sortBy: '',
+      line: ''
     }
     this.handleKeywordChange = this.handleKeywordChange.bind(this)
     this.handleSortByChange = this.handleSortByChange.bind(this)
+    this.handleLineChange = this.handleLineChange.bind(this)
   }
   componentDidMount(){
     axios.get("http://localhost:3001/api/stations").then((response) => {
@@ -30,6 +32,11 @@ class StationContainer extends Component {
       sortBy: e.target.value
     })
   }
+  handleLineChange(e){
+    this.setState({
+      line: e.target.value
+    })
+  }
 
 
     render() {
@@ -37,14 +44,17 @@ class StationContainer extends Component {
           <div>
             <h2>Stations</h2>
             <Search
+              sortBy={this.state.sortBy}
               keyword={this.state.keyword}
               handleKeywordChange={this.handleKeywordChange}
               handleSortByChange={this.handleSortByChange}
+              handleLineChange={this.handleLineChange}
             />
             <div>
             <StationList
               keyword={this.state.keyword}
               sortBy={this.state.sortBy}
+              line={this.state.line}
               stations={this.state.stations}
             />
 

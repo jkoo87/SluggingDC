@@ -10,6 +10,7 @@ import RiderPost from './RiderPost'
 import RiderComment from './RiderComment'
 import RiderPostCreate from './RiderPostCreate'
 import RiderPostEdit from './RiderPostEdit'
+import RideSearch from './RideSearch'
 import Map from './Map'
 
-export { Comment, Search, Station, StationList, Header, CommentCreate, CommentEdit, Map, RiderPostList, RiderPost, RiderComment, RiderPostCreate, RiderPostEdit };
+export { Comment, Search, Station, StationList, Header, CommentCreate, CommentEdit, Map, RiderPostList, RiderPost, RiderComment, RiderPostCreate, RiderPostEdit, RideSearch };

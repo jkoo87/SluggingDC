@@ -2,6 +2,7 @@
   {
     "notice": "Please be completely ready to go and waiting at your pickup location!",
     "destination": "Rolling Valley Mall",
+    "line": "Springfield/Lorton Lines",
     "name": "Jkoo",
     "count": 3,
     "leaving": 10,
@@ -12,6 +13,7 @@
   {
     "notice": "Please be completely ready to go and waiting at your pickup location!",
     "destination": "Bob's",
+    "line": "Springfield/Lorton Lines",
     "name": "Jkoo",
     "count": 3,
     "leaving": 10,

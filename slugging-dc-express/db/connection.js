@@ -40,6 +40,7 @@ let RiderCommentSchema = new Schema({
 
 let RiderPostSchema = new Schema({
   notice: String,
+  line: String,
   destination: String,
   name: String,
   count: Number,

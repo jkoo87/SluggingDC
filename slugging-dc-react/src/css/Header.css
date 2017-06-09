@@ -1,5 +1,5 @@
 .header{
-  background: #5c7cfa;
+  background: black;
   display: table;
   table-layout: fixed;
   width:100%;
@@ -16,7 +16,7 @@
 }
 
 .item:hover {
-  background: #748ffc;
+  background: grey;
 }
 
 .item:active, .item.active {

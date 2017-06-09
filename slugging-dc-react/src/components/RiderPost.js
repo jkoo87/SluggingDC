@@ -87,6 +87,7 @@ class RiderPost extends Component {
               {showEdit}
               <h2>NOTICE: {this.state.post.notice}</h2>
               <p>Name: {this.state.post.name}</p>
+              <p>Line: {this.state.post.line}</p>
               <p>I can take up to {this.state.post.count} people</p>
               <p>Departure Time: {departureHour}:{departureMinutes}</p>
               <p>Pickup Location: {this.state.post.from}</p>
