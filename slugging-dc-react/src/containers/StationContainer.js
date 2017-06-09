@@ -7,9 +7,11 @@ class StationContainer extends Component {
     super(props)
     this.state = {
       stations: [],
-      keyword: ''
+      keyword: '',
+      sortBy: ''
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.handleKeywordChange = this.handleKeywordChange.bind(this)
+    this.handleSortByChange = this.handleSortByChange.bind(this)
   }
   componentDidMount(){
     axios.get("http://localhost:3001/api/stations").then((response) => {
@@ -18,9 +20,14 @@ class StationContainer extends Component {
       })
     })
   }
-  handleChange(e){
+  handleKeywordChange(e){
     this.setState({
       keyword: e.target.value
+    })
+  }
+  handleSortByChange(e){
+    this.setState({
+      sortBy: e.target.value
     })
   }
 
@@ -31,11 +38,13 @@ class StationContainer extends Component {
             <h2>Stations</h2>
             <Search
               keyword={this.state.keyword}
-              handleChange={this.handleChange}
+              handleKeywordChange={this.handleKeywordChange}
+              handleSortByChange={this.handleSortByChange}
             />
             <div>
             <StationList
               keyword={this.state.keyword}
+              sortBy={this.state.sortBy}
               stations={this.state.stations}
             />
 

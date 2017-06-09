@@ -1,7 +1,7 @@
 [
   {
     "name": "Bob's",
-    "morning": true,
+    "morning": false,
     "line": "Springfield/Lorton Lines",
     "location": "Just west of I-95 near the intersection of Old Keene Mill Road and Bland Street in Springfield, VA near the Springfield Town Center (aka Springfield Mall). The line itself is across the street from the parking by the gas station off of Old Keene Mill Road.",
     "description": "This location has undergone the test of time.  Although the construction of the \"Mixing Bowl\" disrupted this line for a short time, it is currently in full operation.  Because of some of the changes there are a few names to describe this location (Bob's, Springfield Plaza, Long John Silvers, Chi Chi's).  All names are actually the same slug line. There are two slug lines that operate out of the commuter lot. Line #1: L’Enfant Plaza and 14th street. Line #2: 18th Street locations (sometimes called Memorial Bridge).",
