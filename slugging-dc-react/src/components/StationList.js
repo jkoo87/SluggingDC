@@ -7,7 +7,13 @@ class StationList extends Component {
     let stations = null
     let matchStations = []
     if (this.props.station === undefined) {
-      stations = this.props.stations.map((station, i) => {
+      stations = this.props.stations.filter(
+        (station) => {
+          return station.name.toLowerCase()
+            .indexOf(this.props.keyword.toLowerCase()) > -1
+        }
+      )
+      stations = stations.map((station, i) => {
         let pathname = `/stations/${station._id}`
         return <div key={i}>
                   <Link to={pathname}>{station.name}</Link>

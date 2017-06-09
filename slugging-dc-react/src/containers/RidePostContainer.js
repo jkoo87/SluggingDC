@@ -12,7 +12,9 @@ class RidePostContainer extends Component {
       isCreate: false
     }
     this.handleCreate = this.handleCreate.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
+    this.postExpired = this.postExpired.bind(this)
 
   }
   componentDidMount(){
@@ -39,11 +41,24 @@ class RidePostContainer extends Component {
       alert("Post has been successfully created")
     })
   }
-
+  handleDelete(id) {
+    axios.delete(`http://localhost:3001/api/riderposts/${id}`,
+    ).then((response) => {
+      this.props.history.push(`/need-a-ride`)
+    })
+  }
   handleToggle(){
     this.setState({
       isCreate: !this.state.isCreate
     })
+  }
+  postExpired(post){
+    const timeNow = new Date()
+    const getExpiredTime= new Date(post.updatedAt)
+    getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + post.leaving );
+    if(timeNow >= getExpiredTime){
+      this.handleDelete(post._id)
+    }
   }
 
 
@@ -59,6 +74,7 @@ class RidePostContainer extends Component {
             {showCreate}
             <RiderPostList
               posts={this.state.posts}
+              postExpired={this.postExpired}
             />
           </div>
         )

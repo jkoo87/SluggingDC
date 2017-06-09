@@ -19,9 +19,10 @@ class RiderPost extends Component {
     axios.get(`http://localhost:3001/api/riderPosts/${this.props.match.params.id}`).then((response) => {
       this.setState({
         post: response.data,
-        carType: response.data.carType
-
+        // carType: response.data.carType
       })
+    }, (errorResponse) => {
+      console.log(errorResponse)
     })
   }
 
@@ -47,7 +48,7 @@ class RiderPost extends Component {
   handleDelete(id) {
     axios.delete(`http://localhost:3001/api/riderposts/${id}`,
     ).then((response) => {
-      alert("Post has been successfully deleted")
+      alert("Post has been deleted")
       this.props.history.push(`/need-a-ride`)
     })
   }
@@ -58,22 +59,28 @@ class RiderPost extends Component {
   }
 
   postExpired(){
-    const timeNow = new Date()
-    const getExpiredTime= new Date(this.state.post.updatedAt)
-    getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + this.state.post.leaving );
-    if(timeNow >= getExpiredTime){
-      console.log("chnage!")
-      this.handleDelete(this.state.post._id)
-    }
+    if(this.state.post.updatedAt !== undefined || this.state.post.updatedAt !== null){
+      const timeNow = new Date()
+      const getExpiredTime= new Date(this.state.post.updatedAt)
+      getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + this.state.post.leaving );
+      if(timeNow >= getExpiredTime){
+        this.handleDelete(this.state.post._id)
+      }
+    } else {this.props.history.push(`/need-a-ride`)}
   }
 
 
 
     render() {
         this.postExpired()
+        const getExpiredTime= new Date(this.state.post.updatedAt)
+        getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + this.state.post.leaving );
+        const departureHour = JSON.stringify(getExpiredTime.getHours())
+        const departureMinutes = JSON.stringify(getExpiredTime.getMinutes())
 
         const blank = (<div></div>)
         const showEdit =  this.state.isEdit? <RiderPostEdit post={this.state.post} onEdit={this.handleEdit} onDelete={this.handleDelete}/> : blank
+
         return (
             <div>
               <h1>Destination: {this.state.post.destination}<button onClick={this.handleToggle}>Edit Post</button></h1>
@@ -81,7 +88,7 @@ class RiderPost extends Component {
               <h2>NOTICE: {this.state.post.notice}</h2>
               <p>Name: {this.state.post.name}</p>
               <p>I can take up to {this.state.post.count} people</p>
-              <p>Departure Time: {this.state.post.leaving} minutes</p>
+              <p>Departure Time: {departureHour}:{departureMinutes}</p>
               <p>Pickup Location: {this.state.post.from}</p>
               <p>Description: {this.state.post.description} </p>
               <RiderComment
