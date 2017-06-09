@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
+import '../css/Station.css'
 
 class StationList extends Component {
 
@@ -48,7 +49,7 @@ class StationList extends Component {
          }
 
       return (
-          <div>
+          <div className="stationListWrapper">
               {stations}
           </div>
       )

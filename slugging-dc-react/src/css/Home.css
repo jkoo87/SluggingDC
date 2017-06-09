@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   text-shadow: 4px 5px 20px rgba(122,212,129, 1);
-  font-family: 'Montserrat Subrayada', sans-serif;
+  font-family: 'Covered By Your Grace', cursive;
   animation: colorChange 5s linear infinite;
 }
 @keyframes colorChange{
@@ -23,14 +23,14 @@
     text-shadow: 4px 5px 20px rgba(122,212,129, 1);
   }
   to {
-    text-shadow: 4px 5px 20px rgba(229,222,19, 1);
+    text-shadow: 4px 5px 20px rgba(229,80,99, 1);
   }
 }
 .titleWrapper >* {
   margin: 200px 0 0 0;
 }
 .title {
-  font-size: calc(60px + 5vw);
+  font-size: calc(70px + 5vw);
   z-index: 999;
   top: 150px;
 
@@ -47,6 +47,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Covered By Your Grace', cursive;
 }
 
 .subWrapper > *{
@@ -54,9 +55,10 @@
   margin: 0;
   padding-right: 20px;
   padding-left: 20px;
-  margin: 0 10px;
+  margin: 0 5px;
   background-color: rgba(230, 230, 230, 0.6);
   text-shadow: 1px 1px 8px rgba(10,10,0, 1);
+  transition: 2.5s ease-out;
 }
 .sub1{
   animation: textFlip 2s linear;
@@ -73,9 +75,33 @@
 
 @keyframes textFlip{
   from {
-    transform: rotateX( 90deg )
+    transform: rotateX( 90deg );
+    -ms-transform: rotateX( 90deg );
+    -webkit-transform: rotateX( 90deg );
   }
   to {
     transform: rotateX( 360deg );
+    -ms-transform: rotateX( 360deg );
+    -webkit-transform: rotateX( 360deg );
   }
+}
+.sub1:hover {
+  transform: rotateX( 50deg );
+  -ms-transform: rotateX( 50deg );
+  -webkit-transform: rotateX( 50deg );
+}
+.sub2:hover{
+  transform: rotateX( 60deg );
+  -ms-transform: rotateX( 60deg );
+  -webkit-transform: rotateX( 60deg );
+}
+.sub3:hover{
+  transform: rotateX( 90deg );
+  -ms-transform: rotateX( 90deg );
+  -webkit-transform: rotateX( 90deg );
+}
+.sub4:hover{
+  transform: rotateX( 100deg );
+  -ms-transform: rotateX( 100deg );
+  -webkit-transform: rotateX( 100deg );
 }

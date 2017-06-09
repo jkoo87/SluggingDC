@@ -1,0 +1,25 @@
+.searchWrapper{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+select[name="sortBy"] {
+  height: 30px;
+  width: 100%;
+  margin: 0 10px 10px 10px;
+  font-size: 17px;
+}
+select[name="Sort By City Lines"] {
+  height: 30px;
+  width: 100%;
+  margin: 0 10px 20px 10px;
+  font-size: 17px;
+}
+input[name="keyword"]{
+  height: 30px;
+  width: 120%;
+  margin: 0 10px 20px 10px;
+  font-size: 17px;
+}

@@ -1,0 +1,92 @@
+.stationBody{
+  background: url("./img/stationListBackground.jpg")no-repeat center;
+  height: 100vh;
+  background-size: cover;
+  animation: backgroundEnter 5s linear;
+  overflow: scroll;
+}
+.stationWrapper{
+  margin: 0;
+  transition: 2.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@keyframes backgroundEnter{
+  from {
+    height: 110vh;
+  }
+  to {
+    height: 100vh;
+  }
+}
+.stationTitle{
+  font-size: calc(40px + 3vw);
+  font-family: 'Love Ya Like A Sister', cursive;
+  margin: 50px 0 20px 0;
+  color: white;
+  padding: 0 20px 0 20px;
+  background-color: rgba(230, 230, 230, 0.5);
+  text-shadow: 1px 1px 8px rgba(10,10,0, 1);
+  animation: textFlip 1s linear;
+}
+@keyframes textFlip{
+  from {
+    transform: rotateX( 90deg );
+    -ms-transform: rotateX( 90deg );
+    -webkit-transform: rotateX( 90deg );
+  }
+  to {
+    transform: rotateX( 360deg );
+    -ms-transform: rotateX( 360deg );
+    -webkit-transform: rotateX( 360deg );
+  }
+}
+.stationListWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 80%;
+}
+.stationList{
+  background-color: rgba(230, 230, 230, 0.5);
+  text-shadow: 1px 1px 8px rgba(10,10,0, 1);
+  height: 300px;
+}
+div.stationListWrapper > * > *{
+  text-shadow: 1px 1px 8px rgba(10,10,0, 1);
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 5px;
+  word-wrap: break-word;
+}
+div.stationListWrapper > *{
+    background: url("./img/wood1.jpg")no-repeat center;
+    background-size: cover;
+    height: 100px;
+    min-width: 160px;
+    width: 160px;
+    margin: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    transition: 1s ease-out;
+    -webkit-box-shadow: 0px 0px 2px 3px rgba(250,250,250,1);
+    -moz-box-shadow: 0px 0px 2px 3px rgba(250,250,250,1);
+    box-shadow: 0px 0px 2px 3px rgba(250,250,250,1);
+}
+
+div.stationListWrapper > div:hover {
+  -webkit-box-shadow: 0px 0px 25px 13px rgba(60,150,220,1);
+  -moz-box-shadow: 0px 0px 25px 13px rgba(60,150,220,1);
+  box-shadow: 0px 0px 25px 13px rgba(100,120,220,1);
+  transform: rotateY( 20deg );
+  -ms-transform: rotateY( 20deg );
+  -webkit-transform: rotateY( 20deg );
+}

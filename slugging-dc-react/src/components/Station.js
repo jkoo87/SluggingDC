@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { StationList, Comment, Map } from '../components'
 import axios from 'axios'
+import '../css/StationDetail.css'
 
 
 class Station extends Component {
@@ -61,14 +62,21 @@ class Station extends Component {
                       /> : blank
                     )
       return (
-          <div>
-              <h1>{this.state.station.name}</h1>
+          <div className="stationDetailBody">
+            <div className="stationDetailWrapper">
+              <div className="stationDetailTitle">{this.state.station.name}</div>
               <h3>Location</h3>
               <p>{this.state.station.location}</p>
-              <h3>Map</h3>
-              {showMap}
-              <h3>Description</h3>
-              <p>{this.state.station.description}</p>
+              <div className="mapDescriptionWrapper">
+                <div>
+                  <h3>Map</h3>
+                  {showMap}
+                </div>
+                <div>
+                  <h3>Description</h3>
+                  <p>{this.state.station.description}</p>
+                </div>
+              </div>
               <h3>Tips to drivers</h3>
               <p>{this.state.station.driver}</p>
               <h3>Parking Info</h3>
@@ -87,6 +95,7 @@ class Station extends Component {
               <Comment
                 id={this.props.match.params.id}
               />
+            </div>
           </div>
       );
   }

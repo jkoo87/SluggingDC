@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { StationList, Search} from '../components'
+import '../css/Station.css'
 import axios from 'axios'
 
 class StationContainer extends Component {
@@ -41,23 +42,24 @@ class StationContainer extends Component {
 
     render() {
         return (
-          <div>
-            <h2>Stations</h2>
-            <Search
-              sortBy={this.state.sortBy}
-              keyword={this.state.keyword}
-              handleKeywordChange={this.handleKeywordChange}
-              handleSortByChange={this.handleSortByChange}
-              handleLineChange={this.handleLineChange}
-            />
-            <div>
-            <StationList
-              keyword={this.state.keyword}
-              sortBy={this.state.sortBy}
-              line={this.state.line}
-              stations={this.state.stations}
-            />
-
+          <div className="stationBody">
+            <div className="stationWrapper">
+              <h1 className="stationTitle">Stations</h1>
+              <Search
+                sortBy={this.state.sortBy}
+                keyword={this.state.keyword}
+                handleKeywordChange={this.handleKeywordChange}
+                handleSortByChange={this.handleSortByChange}
+                handleLineChange={this.handleLineChange}
+              />
+              <div>
+              <StationList
+                keyword={this.state.keyword}
+                sortBy={this.state.sortBy}
+                line={this.state.line}
+                stations={this.state.stations}
+              />
+              </div>
             </div>
           </div>
         )

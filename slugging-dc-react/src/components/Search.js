@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../css/Search.css'
 
 class Search extends Component {
 
@@ -16,7 +17,7 @@ class Search extends Component {
       })
 
   return (
-      <div>
+      <div className="searchWrapper">
           <select name="sortBy" onChange={this.props.handleSortByChange} required>
             <option value="all">Sort By</option>
             <option value="all">All Stations</option>
