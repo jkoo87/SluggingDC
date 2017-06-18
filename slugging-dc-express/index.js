@@ -13,7 +13,8 @@ const Comment = mongoose.Comment;
 app.set("port", process.env.PORT || 3001);
 
 
-app.use("/assets", express.static("public"));
+const distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 app.use(parser.json());
 
 app.get("/api/stations", function(req, res){
