@@ -11,7 +11,6 @@ import {
 class App extends Component {
   render() {
     return (
-      <Router>
       <Router basename="/sluggingdc">
         <div>
           <Header />
