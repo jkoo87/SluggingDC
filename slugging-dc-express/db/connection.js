@@ -1,6 +1,11 @@
 let mongoose = require("mongoose");
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/slugging');
+if(process.env.NODE_ENV == "production"){
+  mongoose.connect(process.env.MONGOLAB_URL);
+}else{
+  mongoose.connect('mongodb://localhost/slugging');
+}
+
 
 let Schema = mongoose.Schema;
 

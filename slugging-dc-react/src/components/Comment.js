@@ -16,7 +16,7 @@ class Comment extends Component {
     this.handleToggle = this.handleToggle.bind(this)
   }
   componentDidMount(){
-    axios.get(`http://localhost:3001/api/stations/${this.props.id}`,{
+    axios.get(`https://sluggingdc.herokuapp.com/api/stations/${this.props.id}`,{
     }).then((response) => {
         this.setState({
           comments: response.data.comments
@@ -26,7 +26,7 @@ class Comment extends Component {
 
 
   handleCreate(comment) {
-    axios.post(`http://localhost:3001/api/stations/${this.props.id}/comments/`,
+    axios.post(`https://sluggingdc.herokuapp.com/api/stations/${this.props.id}/comments/`,
       {
         name: comment.name,
         content: comment.content
@@ -39,7 +39,7 @@ class Comment extends Component {
   }
 
   handleEdit(comment) {
-    axios.put(`http://localhost:3001/api/stations/${this.props.id}/comments/${comment.commentId}`,
+    axios.put(`https://sluggingdc.herokuapp.com/api/stations/${this.props.id}/comments/${comment.commentId}`,
       {
         name: comment.name,
         content: comment.content
@@ -53,7 +53,7 @@ class Comment extends Component {
   }
 
   handleDelete(id) {
-      axios.delete(`http://localhost:3001/api/stations/${this.props.id}/comments/${id}`,
+      axios.delete(`https://sluggingdc.herokuapp.com/api/stations/${this.props.id}/comments/${id}`,
       ).then((response) => {
           this.setState({
             comments: response.data.comments

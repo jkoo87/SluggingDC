@@ -16,7 +16,7 @@ class RiderPost extends Component {
   this.postExpired = this.postExpired.bind(this)
   }
   componentDidMount(){
-    axios.get(`http://localhost:3001/api/riderPosts/${this.props.match.params.id}`).then((response) => {
+    axios.get(`https://sluggingdc.herokuapp.com/api/riderposts/${this.props.match.params.id}`).then((response) => {
       this.setState({
         post: response.data,
         // carType: response.data.carType
@@ -27,7 +27,7 @@ class RiderPost extends Component {
   }
 
   handleEdit(post) {
-    axios.put(`http://localhost:3001/api/riderposts/${post.postId}`,
+    axios.put(`https://sluggingdc.herokuapp.com/api/riderposts/${post.postId}`,
       {
         notice: post.notice,
         destination: post.destination,
@@ -46,7 +46,7 @@ class RiderPost extends Component {
   }
 
   handleDelete(id) {
-    axios.delete(`http://localhost:3001/api/riderposts/${id}`,
+    axios.delete(`https://sluggingdc.herokuapp.com/api/riderposts/${id}`,
     ).then((response) => {
       alert("Post has been deleted")
       this.props.history.push(`/need-a-ride`)

@@ -15,7 +15,7 @@ class RiderComment extends Component {
     this.handleToggle = this.handleToggle.bind(this)
   }
   componentDidMount(){
-    axios.get(`http://localhost:3001/api/riderposts/${this.props.id}`,{
+    axios.get(`https://sluggingdc.herokuapp.com/api/riderposts/${this.props.id}`,{
     }).then((response) => {
         this.setState({
           comments: response.data.comments
@@ -26,7 +26,7 @@ class RiderComment extends Component {
 
 
   handleCreate(comment) {
-    axios.post(`http://localhost:3001/api/riderposts/${this.props.id}/ridercomments/`,
+    axios.post(`https://sluggingdc.herokuapp.com/api/riderposts/${this.props.id}/ridercomments/`,
       {
         name: comment.name,
         content: comment.content
@@ -39,7 +39,7 @@ class RiderComment extends Component {
   }
 
   handleEdit(comment) {
-    axios.put(`http://localhost:3001/api/riderposts/${this.props.id}/ridercomments/${comment.commentId}`,
+    axios.put(`https://sluggingdc.herokuapp.com/api/riderposts/${this.props.id}/ridercomments/${comment.commentId}`,
       {
         name: comment.name,
         content: comment.content
@@ -53,7 +53,7 @@ class RiderComment extends Component {
   }
 
   handleDelete(id) {
-      axios.delete(`http://localhost:3001/api/riderposts/${this.props.id}/ridercomments/${id}`,
+      axios.delete(`https://sluggingdc.herokuapp.com/api/riderposts/${this.props.id}/ridercomments/${id}`,
       ).then((response) => {
           this.setState({
             comments: response.data.comments

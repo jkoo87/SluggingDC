@@ -23,14 +23,14 @@ class RidePostContainer extends Component {
 
   }
   componentDidMount(){
-    axios.get("http://localhost:3001/api/riderposts").then((response) => {
+    axios.get("https://sluggingdc.herokuapp.com/api/riderposts").then((response) => {
       this.setState({
         posts: response.data
       })
     })
   }
   handleCreate(post) {
-    axios.post(`http://localhost:3001/api/riderposts/`,
+    axios.post(`https://sluggingdc.herokuapp.com/api/riderposts`,
       {
         notice: post.notice,
         destination: post.destination,
@@ -48,7 +48,7 @@ class RidePostContainer extends Component {
     })
   }
   handleDelete(id) {
-    axios.delete(`http://localhost:3001/api/riderposts/${id}`,
+    axios.delete(`https://sluggingdc.herokuapp.com/api/riderposts${id}`,
     ).then((response) => {
       this.props.history.push(`/need-a-ride`)
     })

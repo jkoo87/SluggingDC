@@ -22,7 +22,7 @@ class PostEdit extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   componentDidMount(){
-    axios.get("http://localhost:3001/api/stations").then((response) => {
+    axios.get("https://sluggingdc.herokuapp.com/api/stations/").then((response) => {
       this.setState({
         stations: response.data
       })

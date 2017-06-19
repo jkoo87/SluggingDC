@@ -4,18 +4,23 @@ const mongoose = require("./db/connection");
 const cors = require('cors')
 
 const app = express();
-app.use(cors())
+
 
 const Station = mongoose.Station;
 const Comment = mongoose.Comment;
 
 
 app.set("port", process.env.PORT || 3001);
+app.set("view engine", "hbs");
+app.use("/assets", express.static("public"));
+app.use(parser.json({extended: true}));
+
+app.get("/", (req, res) => {
+  res.render("index")
+})
 
 
-const distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
-app.use(parser.json());
+app.options('*', cors())
 
 app.get("/api/stations", function(req, res){
   Station.find({}).then (function(stations){
@@ -211,10 +216,10 @@ app.put("/api/riderposts/:id/ridercomments/:ridercomment_id", function(req, res)
 
 
 app.get("/*", function(req, res) {
-  res.render("stations");
+  res.render("index");
 });
 
-
+app.use(express.static(__dirname + "/"))
 app.listen(app.get("port"), function(){
   console.log("Port 3001 is alivvvvvvvvve");
 });

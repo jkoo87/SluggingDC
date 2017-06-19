@@ -17,12 +17,12 @@ class Station extends Component {
   }
 
   componentDidMount(){
-    axios.get("http://localhost:3001/api/stations").then((response) => {
+    axios.get("https://sluggingdc.herokuapp.com/api/stations/").then((response) => {
       this.setState({
         stations: response.data
       })
     })
-    axios.get(`http://localhost:3001/api/stations/${this.props.match.params.id}`,{
+    axios.get(`https://sluggingdc.herokuapp.com/api/stations/${this.props.match.params.id}`,{
     }).then((response) => {
         this.setState({
           station: response.data,
