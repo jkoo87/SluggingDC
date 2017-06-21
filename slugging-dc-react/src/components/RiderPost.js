@@ -22,7 +22,6 @@ class RiderPost extends Component {
         // carType: response.data.carType
       })
     }, (errorResponse) => {
-      console.log(errorResponse)
     })
   }
 

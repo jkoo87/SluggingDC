@@ -2,7 +2,7 @@
   background: url("./img/stationListBackground.jpg")no-repeat center;
   height: 100vh;
   background-size: cover;
-  animation: backgroundEnter 5s linear;
+  animation: backgroundEnter 2s linear;
   overflow: scroll;
 }
 .stationWrapper{

@@ -70,7 +70,6 @@ class PostCreate extends Component {
   }
 
   render(){
-    console.log(this.state.line)
     const AmLines = ["Springfield/Lorton Lines", "Woodbridge/Dale City", "Stafford Lines", "Fredericksburg Lines", "I-66/Manassas Lines"]
     const showLines = AmLines.map((line, i) => {
         return  (<option key={i} value={line}>{line}</option>)

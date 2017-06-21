@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { StationList, Comment, Map } from '../components'
 import axios from 'axios'
 import '../css/StationDetail.css'
+import $ from 'jquery';
 
 
 class Station extends Component {
@@ -34,7 +35,7 @@ class Station extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    axios.get("http://localhost:3001/api/stations/"+ nextProps.match.params.id,{
+    axios.get(`https://sluggingdc.herokuapp.com/api/stations/${nextProps.match.params.id}`,{
     }).then((response) => {
         this.setState({
           station: response.data,
@@ -42,7 +43,9 @@ class Station extends Component {
           destinations: response.data.destinations,
           returnStation: response.data.returningStations
         })
-      })
+    })
+    $(".stationDetailBody").scrollTop(0)
+
   }
 
 

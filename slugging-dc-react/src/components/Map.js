@@ -4,14 +4,24 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 class Map extends Component {
 
     render() {
-      const markers = this.props.markers || []
-      console.log(this.props.markers)
+
+        const marker = [
+          {
+            position:{
+              lat: this.props.address.lat,
+              lng: this.props.address.lng
+            }
+          }
+        ]
         return (
             <GoogleMap
               defaultZoom={15}
-              defaultCenter={{ lat: this.props.address.lat, lng: this.props.address.lng }}>
-              {markers.map((marker, index) => (
-                <Marker {...marker}/>
+              defaultCenter={{ lat: this.props.address.lat, lng: this.props.address.lng }}
+              marker={marker}
+              // markers={{lat: this.props.address.lat, lng: this.props.address.lng}}
+              >
+              {marker.map((marker, i) => (
+                <Marker key={i} {...marker}/>
                 )
               )}
             </GoogleMap>
