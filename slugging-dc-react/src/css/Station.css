@@ -3,7 +3,7 @@
   height: 100vh;
   background-size: cover;
   animation: backgroundEnter 2s linear;
-  overflow: scroll;
+  overflow: auto;
 }
 .stationWrapper{
   margin: 0;
@@ -75,7 +75,6 @@ div.stationListWrapper > *{
     text-align: center;
     align-items: center;
     justify-content: center;
-    border-radius: 30px;
     transition: 1s ease-out;
     -webkit-box-shadow: 0px 0px 2px 3px rgba(250,250,250,1);
     -moz-box-shadow: 0px 0px 2px 3px rgba(250,250,250,1);
@@ -83,6 +82,7 @@ div.stationListWrapper > *{
 }
 
 div.stationListWrapper > div:hover {
+  border-radius: 30px;
   -webkit-box-shadow: 0px 0px 25px 13px rgba(60,150,220,1);
   -moz-box-shadow: 0px 0px 25px 13px rgba(60,150,220,1);
   box-shadow: 0px 0px 25px 13px rgba(100,120,220,1);

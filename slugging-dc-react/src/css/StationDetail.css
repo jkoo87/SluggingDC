@@ -3,7 +3,7 @@
   height: 100vh;
   background-size: cover;
   animation: backgroundEnter 5s linear;
-  overflow: scroll;
+  overflow: auto;
 }
 
 

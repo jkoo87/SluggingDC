@@ -13,16 +13,13 @@ class Station extends Component {
       station: [],
       hours: [],
       returnStation: [],
-      destinations: []
+      destinations: [],
+      map: [],
+      newMap: []
       }
   }
 
   componentDidMount(){
-    axios.get("https://sluggingdc.herokuapp.com/api/stations/").then((response) => {
-      this.setState({
-        stations: response.data
-      })
-    })
     axios.get(`https://sluggingdc.herokuapp.com/api/stations/${this.props.match.params.id}`,{
     }).then((response) => {
         this.setState({
@@ -32,6 +29,11 @@ class Station extends Component {
           returnStation: response.data.returningStations
         })
       })
+    axios.get("https://sluggingdc.herokuapp.com/api/stations/").then((response) => {
+      this.setState({
+        stations: response.data
+      })
+    })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,7 +43,8 @@ class Station extends Component {
           station: response.data,
           hours: response.data.hours,
           destinations: response.data.destinations,
-          returnStation: response.data.returningStations
+          returnStation: response.data.returningStations,
+          map: response.data.map
         })
     })
     $(".stationDetailBody").scrollTop(0)
