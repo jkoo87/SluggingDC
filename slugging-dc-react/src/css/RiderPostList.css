@@ -43,6 +43,18 @@ div.riderListWrapper > div > * > p{
   margin: 5px;
 }
 
+div.riderListWrapper > div > * > p > span{
+  color: gold;
+}
+.notice{
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 8px rgba(10,10,0, 1);
+  font-weight: bold;
+  font-size: 1.3em;
+
+}
+
 div.riderListWrapper > div:hover {
   background-size: 120%;
   border-radius: 30px;

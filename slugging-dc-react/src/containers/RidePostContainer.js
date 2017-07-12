@@ -12,7 +12,8 @@ class RidePostContainer extends Component {
       posts: [],
       isCreate: false,
       line: '',
-      keyword:''
+      keyword:'',
+      timer:[]
     }
     this.handleCreate = this.handleCreate.bind(this)
     this.handleDelete = this.handleDelete.bind(this)

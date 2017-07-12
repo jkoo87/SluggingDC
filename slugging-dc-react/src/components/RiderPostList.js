@@ -5,10 +5,25 @@ import $ from 'jquery'
 
 class RiderPostList extends Component {
 
+
+  constructor(props) {
+    super(props)
+    this.timers = []
+  }
+  deleteTimer(){
+    this.timers.forEach((timer)=>{
+      clearInterval(timer)
+    })
+  }
+  componentWillUnmount(){
+    console.log("check")
+    this.deleteTimer();
+
+  }
+
   render() {
-      // for(let i= 0; i < this.props.posts.length; i++){
-      //   this.props.postExpired(this.props.posts[i])
-      // }
+      let timers = this.timers
+      this.deleteTimer()
 
       let posts = null
       posts = this.props.posts.filter(
@@ -38,21 +53,25 @@ class RiderPostList extends Component {
         getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + post.leaving )
         let countDownDate = new Date(getExpiredTime).getTime()
         let countId = "countId"+ i
+        console.log('ehi')
 
         let x = setInterval(function() {
             let now = new Date().getTime()
             let distance = countDownDate - now
-            // let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
             let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            $("#"+countId).html(hours + "h "
+            $("#"+countId).html(days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ")
             if (distance < 0) {
                  clearInterval(x);
                  $("#"+countId).html("EXPIRED");
              }
             }, 1000)
+
+            timers.push(x)
+
 
 
         let pathname = `/need-a-ride/${post._id}`
@@ -62,9 +81,12 @@ class RiderPostList extends Component {
       })
 
       return (
+        <div>
           <div className="riderListWrapper">
               {postList}
           </div>
+          <p className="notice">* Expired posts will be deleted from the list *</p>
+        </div>
       )
   }
 }
