@@ -14,9 +14,9 @@ class Station extends Component {
       hours: [],
       returnStation: [],
       destinations: [],
-      map: [],
-      newMap: []
+      map: []
       }
+    this.clearMapLat = this.clearMapLat.bind(this)
   }
 
   componentDidMount(){
@@ -26,7 +26,8 @@ class Station extends Component {
           station: response.data,
           hours: response.data.hours,
           destinations: response.data.destinations,
-          returnStation: response.data.returningStations
+          returnStation: response.data.returningStations,
+          map: response.data.map
         })
       })
     axios.get("https://sluggingdc.herokuapp.com/api/stations/").then((response) => {
@@ -52,6 +53,13 @@ class Station extends Component {
   }
 
 
+  clearMapLat(){
+      this.setState({
+        map: []
+      })
+  }
+
+
 
   render() {
     const destin = this.state.destinations.map((destination, i) => {
@@ -60,13 +68,15 @@ class Station extends Component {
              </div>
     })
     const blank = (<div></div>)
-    const showMap = (this.state.station.map.lat?
+    const showMap = (this.state.map.lat?
                       <Map
                         containerElement={<div style={{height:230+'px', width: 80+'%'}} />}
                         mapElement={<div style={{height:200+'px'}} />}
                         address={this.state.station.map}
                       /> : blank
                     )
+
+
       return (
           <div className="stationDetailBody">
             <div className="stationDetailWrapper">
