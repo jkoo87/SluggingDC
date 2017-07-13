@@ -15,8 +15,8 @@ class RiderPostList extends Component {
       clearInterval(timer)
     })
   }
+
   componentWillUnmount(){
-    console.log("check")
     this.deleteTimer();
 
   }
@@ -53,7 +53,6 @@ class RiderPostList extends Component {
         getExpiredTime.setMinutes ( getExpiredTime.getMinutes() + post.leaving )
         let countDownDate = new Date(getExpiredTime).getTime()
         let countId = "countId"+ i
-        console.log('ehi')
 
         let x = setInterval(function() {
             let now = new Date().getTime()
@@ -62,14 +61,20 @@ class RiderPostList extends Component {
             let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            $("#"+countId).html(days + "d " + hours + "h "
-            + minutes + "m " + seconds + "s ")
+
+            if (days === 0 && hours === 0 && minutes === 0){
+              $("#"+countId).html(seconds + "s ")
+            } else if (days === 0 && hours === 0){
+              $("#"+countId).html(minutes + "m " + seconds + "s ")
+            } else if (days === 0){
+              $("#"+countId).html(hours + "h " + minutes + "m " + seconds + "s ")
+            } else{$("#"+countId).html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ")}
+
             if (distance < 0) {
                  clearInterval(x);
                  $("#"+countId).html("EXPIRED");
              }
             }, 1000)
-
             timers.push(x)
 
 

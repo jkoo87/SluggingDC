@@ -18,12 +18,7 @@ class Search extends Component {
 
   return (
       <div className="searchWrapper">
-          <select name="sortBy" onChange={this.props.handleSortByChange} required>
-            <option value="all">Sort By</option>
-            <option value="all">All Stations</option>
-            <option value="am">AM Stations</option>
-            <option value="pm">PM Stations</option>
-          </select>
+
           <select name="Sort By City Lines" onChange={this.props.handleLineChange} required>
             <option value="all">Sort By City Lines</option>
             {showLines}
