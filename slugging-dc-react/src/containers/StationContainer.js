@@ -10,7 +10,8 @@ class StationContainer extends Component {
       stations: [],
       keyword: '',
       sortBy: '',
-      line: ''
+      line: '',
+      loading: true
     }
     this.handleKeywordChange = this.handleKeywordChange.bind(this)
     this.handleSortByChange = this.handleSortByChange.bind(this)
@@ -19,8 +20,12 @@ class StationContainer extends Component {
   componentDidMount(){
     axios.get("https://sluggingdc.herokuapp.com/api/stations/").then((response) => {
       this.setState({
-        stations: response.data
+        stations: response.data,
+        loading: false
       })
+    })
+    .catch(error => {
+      console.log(error);
     })
   }
   handleKeywordChange(e){
@@ -58,6 +63,7 @@ class StationContainer extends Component {
                 sortBy={this.state.sortBy}
                 line={this.state.line}
                 stations={this.state.stations}
+                loading={this.state.loading}
               />
               </div>
             </div>

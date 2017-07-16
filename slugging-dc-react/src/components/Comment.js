@@ -78,7 +78,7 @@ class Comment extends Component {
 
         let viewComments= this.state.comments.map((comment, i)=>{
           return <div key={i}>
-                    <div>{comment.content}({comment.name}) {comment.updatedAt} <button onClick={() => {this.handleToggle(i)}}>Edit</button></div>
+                    <div>{comment.content}({comment.name})<br/> {comment.updatedAt} <button onClick={() => {this.handleToggle(i)}}>Edit</button></div>
                     {this.state.isEditing === i ? <CommentEdit
                                             onEdit = {this.handleEdit}
                                             onDelete = {this.handleDelete}
@@ -92,11 +92,12 @@ class Comment extends Component {
         return (
             <div className="commentWrapper">
                 <h1>Comment</h1>
+                  {viewComments}
                 <CommentCreate
                   onCreate = {this.handleCreate}
                 />
                 <div className="commentViewWrapper">
-                {viewComments}
+
                 </div>
             </div>
         );

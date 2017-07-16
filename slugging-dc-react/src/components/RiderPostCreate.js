@@ -86,6 +86,7 @@ class PostCreate extends Component {
     return(
       <div className="riderCommentFormWrapper">
       <form className="riderCommentForm" onSubmit={this.handleSubmit} >
+        <div className="formClose" onClick={this.props.onClickClose}>X</div>
         <h1 className="commentFormTitle">Create New Post</h1>
         <p>
         <select name="Sort By City Lines"  onChange={this.handleLineChange} required>

@@ -13,7 +13,8 @@ class RidePostContainer extends Component {
       isCreate: false,
       line: '',
       keyword:'',
-      timer:[]
+      timer:[],
+      loading: true
     }
     this.handleCreate = this.handleCreate.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -26,8 +27,12 @@ class RidePostContainer extends Component {
   componentDidMount(){
     axios.get("https://sluggingdc.herokuapp.com/api/riderposts").then((response) => {
       this.setState({
-        posts: response.data
+        posts: response.data,
+        loading: false
       })
+    })
+    .catch(error => {
+      console.log(error);
     })
   }
   handleCreate(post) {
@@ -82,7 +87,7 @@ class RidePostContainer extends Component {
 
     render() {
         const blank = (<div></div>)
-        const showCreate =  this.state.isCreate? <RiderPostCreate posts={this.state.stations} onCreate={this.handleCreate}/> : blank
+        const showCreate =  this.state.isCreate? <RiderPostCreate posts={this.state.stations} onCreate={this.handleCreate} onClickClose={this.handleToggle}/> : blank
 
         return (
           <div className="riderPostContainer">
@@ -102,6 +107,7 @@ class RidePostContainer extends Component {
                   keyword={this.state.keyword}
                   posts={this.state.posts}
                   postExpired={this.postExpired}
+                  loading={this.state.loading}
                 />
               </div>
           </div>

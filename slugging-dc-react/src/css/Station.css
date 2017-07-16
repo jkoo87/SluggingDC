@@ -90,3 +90,7 @@ div.stationListWrapper > div:hover {
   -ms-transform: rotateY( 20deg );
   -webkit-transform: rotateY( 20deg );
 }
+
+.loading{
+  width: 100%;
+}

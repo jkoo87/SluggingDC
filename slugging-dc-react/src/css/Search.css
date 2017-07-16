@@ -61,3 +61,16 @@ textarea{
   color: white;
   text-align: center;
 }
+.formClose{
+  position: absolute;
+  text-align: right;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .4s;
+  right: 40px;
+}
+
+.formClose:hover{
+  font-size: 40px;
+}
