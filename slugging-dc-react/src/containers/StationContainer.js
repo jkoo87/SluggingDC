@@ -49,7 +49,7 @@ class StationContainer extends Component {
         return (
           <div className="stationBody">
             <div className="stationWrapper">
-              <h1 className="stationTitle">Stations</h1>
+              <h1 className="stationTitle">Slug Lines</h1>
               <Search
                 sortBy={this.state.sortBy}
                 keyword={this.state.keyword}

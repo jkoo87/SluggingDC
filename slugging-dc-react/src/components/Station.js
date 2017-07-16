@@ -14,7 +14,8 @@ class Station extends Component {
       hours: [],
       returnStation: [],
       destinations: [],
-      map: []
+      map: [],
+      loading: true
       }
     this.clearMapLat = this.clearMapLat.bind(this)
   }
@@ -32,7 +33,8 @@ class Station extends Component {
       })
     axios.get("https://sluggingdc.herokuapp.com/api/stations/").then((response) => {
       this.setState({
-        stations: response.data
+        stations: response.data,
+        loading: false
       })
     })
   }
@@ -76,6 +78,9 @@ class Station extends Component {
                       /> : blank
                     )
 
+    const lines = (this.state.station.morning === "am"?
+                    <span>PM</span> : <span>AM</span>
+                  )
 
       return (
           <div className="stationDetailBody">
@@ -98,11 +103,12 @@ class Station extends Component {
               <p>Good: {this.state.hours.good} </p>
               <h3>Destinations</h3>
               <ul>{destin}</ul>
-              <h3>Returning Stations</h3>
+              <h3>Returning {lines} Slug Lines</h3>
               <StationList
                 stations={this.state.stations}
                 station={this.state.station}
                 returnStation={this.state.returnStation}
+                loading={this.state.loading}
               />
               <Comment
                 id={this.props.match.params.id}
