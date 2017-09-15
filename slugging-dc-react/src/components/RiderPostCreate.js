@@ -134,7 +134,7 @@ class PostCreate extends Component {
             <option value="40">40 minutes</option>
             <option value="50">50 minutes</option>
             <option value="60">1 hour</option>
-            <option value="43200">30 days</option>
+            <option value="43200">25 days</option>
           </select>
         </p>
         <p><textarea
